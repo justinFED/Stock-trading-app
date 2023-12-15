@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>StockTradingApp</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>StockTradingApp</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+  <%= javascript_importmap_tags %>
+</head>
 
-  <body>
-    <%= render 'layouts/alerts' %>
-    <%= yield %>
-  </body>
+<body>
+  <%= render 'layouts/alerts' %>
+
+  <!-- Add a Bootstrap alert for verification -->
+  <div class="alert alert-primary" role="alert">
+    This is a Bootstrap alert.
+  </div>
+
+  <%= yield %>
+</body>
 </html>
