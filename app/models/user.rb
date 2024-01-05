@@ -11,12 +11,13 @@ class User < ApplicationRecord
   enum role: { trader: 0, admin: 1 }
   enum status: { pending: 0, approved: 1}
 
-  before_create :set_default_role
+  before_create :set_default_values
 
   private
 
-  def set_default_role
-    self.role ||= trader
+  def set_default_values
+    self.role ||= :trader
+    self.status ||= :pending
   end
-  
+
 end
