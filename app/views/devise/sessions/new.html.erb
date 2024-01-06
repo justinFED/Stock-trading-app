@@ -6,50 +6,55 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
 </head>
 <body>
 
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-body">
-
-          <div class="text-center mb-4">
-          <%= image_tag("logo.png", alt: "logo", class: "img-fluid", style: "max-width: 100px;") %>
-        </div>
-        
-            <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
-              <div class="form-group">
-                <%= f.label :email %>
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+  <div class="container-fluid p-0">
+    <video autoplay muted loop id="video-background">
+      <source src="<%= asset_path('backgroundv.mp4') %>" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <%= image_tag("logo.png", alt: "logo", class: "img-fluid", style: "max-width: 100px;") %>
               </div>
-
-              <div class="form-group">
-                <%= f.label :password %>
-                <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-              </div>
-
-              <% if devise_mapping.rememberable? %>
-                <div class="form-group form-check">
-                  <%= f.check_box :remember_me, class: "form-check-input" %>
-                  <%= f.label :remember_me, class: "form-check-label" %>
+              
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "form" }) do |f| %>
+                <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                </div>
+  
+                <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                </div>
+  
+                <% if devise_mapping.rememberable? %>
+                  <div class="form-group form-check">
+                    <%= f.check_box :remember_me, class: "form-check-input" %>
+                    <%= f.label :remember_me, class: "form-check-label" %>
+                  </div>
+                <% end %>
+  
+                <div class="form-group">
+                  <%= f.submit "Log in", class: "btn btn-primary" %>
                 </div>
               <% end %>
-
-              <div class="form-group">
-                <%= f.submit "Log in", class: "btn btn-primary" %>
-              </div>
-            <% end %>
-
-            <%= render "devise/shared/links" %>
-
+  
+              <%= render "devise/shared/links" %>
+  
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
 </body>
 </html>
