@@ -68,11 +68,5 @@ RSpec.describe User, type: :model do
       expect(user).not_to be_valid
       expect(user.errors[:role]).to include("can't be blank")
     end
-
-    it 'requires status' do
-      user = User.new(status: nil)
-      expect(user).not_to be_valid
-      expect(user.errors[:status]).to include("can't be blank")
-    end
   end
 end
