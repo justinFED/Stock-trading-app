@@ -1,2 +1,3 @@
 <h1 style="color: white;">Hello, <%= current_user.first_name %>!</h1>
 <p style="color: white;">Welcome to the Admin Dashboard.</p>
+<%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } , style: 'color: white;' %>
