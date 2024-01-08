@@ -1,0 +1,44 @@
+<%= form_for user, url: user.persisted? ? admin_dashboard_path(user) : admin_dashboard_index_path, method: user.persisted? ? :patch : :post do |f| %>
+    <div class = 'field'>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+    </div>
+
+    <div class = 'field'>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+    </div>
+
+    <div class = 'field'>
+        <%= f.label :email %>
+        <%= f.email_field :email %>
+    </div>
+
+    <div class = 'field'>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+    </div>
+
+    <div class = 'field'>
+        <%= f.label :password_confirmation %>
+        <%= f.password_field :password_confirmation %>
+    </div>
+
+    <div class='field'>
+        <%= f.label :status %>
+        <%= f.radio_button :status, :pending %> Pending
+        <%= f.radio_button :status, :approved %> Approved
+    </div>
+
+    <div class='field'>
+        <%= f.label :role %>
+        <%= f.radio_button :role, :trader, checked: true %> Trader
+        <%= f.radio_button :role, :admin %> Admin
+    </div>
+
+    <div class='actions'>
+        <%= f.submit %>
+    </div>
+
+
+<% end %>

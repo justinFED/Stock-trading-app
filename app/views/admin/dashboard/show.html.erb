@@ -1,0 +1,9 @@
+<div class='trader-card'>
+  <h1><%= "#{@user.first_name} #{@user.last_name}" %></h1>
+  <p>User ID: <%= @user.id %></p>
+  <p>Email: <%= @user.email %></p>
+  <p>Role: <%= @user.role %></p>
+  <p>Status: <%= @user.status %></p>
+  <p>Registration Date: <%= @user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+  <%= link_to 'Edit User Info', edit_admin_dashboard_path(@user) %>
+</div>

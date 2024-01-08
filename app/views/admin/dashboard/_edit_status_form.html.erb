@@ -1,0 +1,11 @@
+<%= form_for trader, url: admin_dashboard_path(trader), method: :patch do |f| %>
+  <div class='field'>
+    <%= f.label :status %>
+    <%= f.radio_button :status, :pending %> Pending
+    <%= f.radio_button :status, :approved %> Approved
+  </div>
+
+  <div class='actions'>
+    <%= f.submit %>
+  </div>
+<% end %>
