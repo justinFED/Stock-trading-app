@@ -1,4 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
+:root {
+  --black: #090d16;
+  --dark-grey: #222428;
+  --light-grey: #82929f;
+  --green: #21ce99;
+  --orange: #fc4d2d;
+  --hover-bg-color: #0d1320;
+}
+
+
 body {
   background-color: #090d16;
   font-family: 'Nunito', sans-serif;
@@ -96,3 +107,33 @@ body {
   font-size: 30px;
 }
 
+
+/* Pending */
+
+.admin-dash-wrapper {
+  background-color: var(--light-grey);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+}
+
+.add-new-trader {
+  margin-bottom: 20px;
+}
+
+.pending-traders, .approved-traders {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.trader-card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}

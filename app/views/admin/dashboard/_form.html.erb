@@ -1,44 +1,55 @@
 <%= form_for user, url: user.persisted? ? admin_dashboard_path(user) : admin_dashboard_index_path, method: user.persisted? ? :patch : :post do |f| %>
-    <div class = 'field'>
-        <%= f.label :first_name %>
-        <%= f.text_field :first_name %>
+    <div class='field mb-3'>
+      <%= f.label :first_name, class: 'form-label text-light' %>
+      <%= f.text_field :first_name, class: 'form-control bg-light text-dark', placeholder: 'Enter first name' %>
     </div>
-
-    <div class = 'field'>
-        <%= f.label :last_name %>
-        <%= f.text_field :last_name %>
+  
+    <div class='field mb-3'>
+      <%= f.label :last_name, class: 'form-label text-light' %>
+      <%= f.text_field :last_name, class: 'form-control bg-light text-dark', placeholder: 'Enter last name' %>
     </div>
-
-    <div class = 'field'>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
+  
+    <div class='field mb-3'>
+      <%= f.label :email, class: 'form-label text-light' %>
+      <%= f.email_field :email, class: 'form-control bg-light text-dark', placeholder: 'Enter email address' %>
     </div>
-
-    <div class = 'field'>
-        <%= f.label :password %>
-        <%= f.password_field :password %>
+  
+    <div class='field mb-3'>
+      <%= f.label :password, class: 'form-label text-light' %>
+      <%= f.password_field :password, class: 'form-control bg-light text-dark', placeholder: 'Enter password' %>
     </div>
-
-    <div class = 'field'>
-        <%= f.label :password_confirmation %>
-        <%= f.password_field :password_confirmation %>
+  
+    <div class='field mb-3'>
+      <%= f.label :password_confirmation, class: 'form-label text-light' %>
+      <%= f.password_field :password_confirmation, class: 'form-control bg-light text-dark', placeholder: 'Confirm password' %>
     </div>
-
-    <div class='field'>
-        <%= f.label :status %>
-        <%= f.radio_button :status, :pending %> Pending
-        <%= f.radio_button :status, :approved %> Approved
+  
+    <div class='field mb-3'>
+      <%= f.label :status, class: 'form-label text-light d-block' %>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :status, :pending, class: 'form-check-input', id: 'pending_radio' %>
+        <%= f.label :pending, class: 'form-check-label text-light', for: 'pending_radio' %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :status, :approved, class: 'form-check-input', id: 'approved_radio' %>
+        <%= f.label :approved, class: 'form-check-label text-light', for: 'approved_radio' %>
+      </div>
     </div>
-
-    <div class='field'>
-        <%= f.label :role %>
-        <%= f.radio_button :role, :trader, checked: true %> Trader
-        <%= f.radio_button :role, :admin %> Admin
+  
+    <div class='field mb-3'>
+      <%= f.label :role, class: 'form-label text-light d-block' %>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :role, :trader, checked: true, class: 'form-check-input', id: 'trader_radio' %>
+        <%= f.label :trader, class: 'form-check-label text-light', for: 'trader_radio' %>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :role, :admin, class: 'form-check-input', id: 'admin_radio' %>
+        <%= f.label :admin, class: 'form-check-label text-light', for: 'admin_radio' %>
+      </div>
     </div>
-
+  
     <div class='actions'>
-        <%= f.submit %>
+      <%= f.submit 'Save', class: 'btn btn-success' %>
     </div>
-
-
-<% end %>
+  <% end %>
+  

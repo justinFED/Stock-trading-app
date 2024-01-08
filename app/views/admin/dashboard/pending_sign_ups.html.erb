@@ -1,37 +1,36 @@
 <div class='admin-dash-wrapper'>
 
-<div class='add-new-trader'>
-    <%= link_to 'Add New Trader', new_admin_dashboard_path %>
-</div>
+  <div class='add-new-trader'>
+    <%= link_to 'Add New Trader', new_admin_dashboard_path, class: 'btn btn-primary' %>
+  </div>
 
-<div class='pending-traders'>
-    <h1>Pending Trader Applications</h1>
+  <div class='pending-traders'>
+    <h1 class='mb-4'>Pending Trader Applications</h1>
     <% @pending_traders.each do |trader| %>
-        <div class='trader-card'>
-            <h3>
-                <%= "#{trader.first_name} #{trader.last_name}" %>
-            </h3>
-            <p>Email: <%= trader.email %></p>
-            <p>Registration Date: <%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-              <%= render 'edit_status_form', trader: trader %>
-        </div>
+      <div class='trader-card'>
+        <h3 class='mb-2'>
+          <%= "#{trader.first_name} #{trader.last_name}" %>
+        </h3>
+        <p>Email: <%= trader.email %></p>
+        <p>Registration Date: <%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+        <%= render 'edit_status_form', trader: trader %>
+      </div>
     <% end %>
-</div>
+  </div>
 
-<div class='approved-traders'>
-  <h1>List of all Approved Traders</h1>
-  <% User.where(role: :trader, status: :approved).each do |trader| %>
-    <div class='trader-card approved'>
-      <h3>
-         <%= link_to "#{trader.first_name} #{trader.last_name}", admin_dashboard_path(trader) %>
-      </h3>
-      <p>Email: <%= trader.email %></p>
-      <p>Role: <%= trader.role %></p>
-      <p>Status: <%= trader.status %></p>
-      <p>Registration Date:<%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-    </div>
-  <% end %>
-</div>
+  <div class='approved-traders'>
+    <h1 class='mb-4'>List of all Approved Traders</h1>
+    <% User.where(role: :trader, status: :approved).each do |trader| %>
+      <div class='trader-card'>
+        <h3 class='mb-2'>
+          <%= link_to "#{trader.first_name} #{trader.last_name}", admin_dashboard_path(trader) %>
+        </h3>
+        <p>Email: <%= trader.email %></p>
+        <p>Role: <%= trader.role %></p>
+        <p>Status: <%= trader.status %></p>
+        <p>Registration Date:<%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+      </div>
+    <% end %>
+  </div>
 
 </div>
-
