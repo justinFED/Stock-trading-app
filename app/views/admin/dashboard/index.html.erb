@@ -1,3 +1,36 @@
-<h1 style="color: white;">Hello, <%= current_user.first_name %>!</h1>
-<p style="color: white;">Welcome to the Admin Dashboard.</p>
-<%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } , style: 'color: white;' %>
+<!-- Sidebar -->
+<div class="sidebar">
+<h1>Hello, <%= current_user.first_name %>!</h1>
+  
+  <button type="button" class="btn btn-primary btn-block mt-2" data-bs-toggle="modal" data-bs-target="#addUserModal">
+    Add New User
+  </button>
+  <button type="button" class="btn btn-warning btn-block mt-2" data-bs-toggle="modal" data-bs-target="#editUserModal">
+    Edit User
+  </button>
+  <button type="button" class="btn btn-info btn-block mt-2" data-bs-toggle="modal" data-bs-target="#viewUserModal">
+    View User
+  </button>
+  <button type="button" class="btn btn-secondary btn-block mt-2" data-bs-toggle="modal" data-bs-target="#userListModal">
+    See All Users
+  </button>
+  <button type="button" class="btn btn-success btn-block mt-2" data-bs-toggle="modal" data-bs-target="#approveTraderModal">
+    Approve Trader
+  </button>
+  <button type="button" class="btn btn-warning btn-block mt-2" data-bs-toggle="modal" data-bs-target="#pendingTradersModal">
+    Pending Trader Sign Ups
+  </button>
+  <button type="button" class="btn btn-info btn-block mt-2" data-bs-toggle="modal" data-bs-target="#transactionListModal">
+    See All Transactions
+  </button>
+  <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+</div>
+
+
+<div class="content">
+ 
+
+  <p>Welcome to the Admin Dashboard.</p>
+
+
+</div>
