@@ -28,7 +28,7 @@
   <% User.where(role: :trader, status: :approved).each do |trader| %>
     <div class='trader-card approved'>
       <h3>
-        <%= "#{trader.first_name} #{trader.last_name}" %>
+         <%= link_to "#{trader.first_name} #{trader.last_name}", admin_dashboard_path(trader) %>
       </h3>
       <p>Email: <%= trader.email %></p>
       <p>Role: <%= trader.role %></p>
