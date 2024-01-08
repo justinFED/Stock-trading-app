@@ -7,10 +7,15 @@ Rails.application.routes.draw do
     root to: "devise/sessions#new"
   end
 
-  namespace :admin do
-    resources :dashboard, only: [:index, :new, :create, :edit, :update, :show]
-  
-    end
+# config/routes.rb
+
+namespace :admin do
+  resources :dashboard, only: [:index, :new, :create, :edit, :update, :show] do
+    get 'pending_sign_ups', to: 'dashboard#pending_sign_ups', on: :collection
+  end
+end
+
+
  
  
 

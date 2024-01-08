@@ -33,7 +33,9 @@ class Admin::DashboardController < ApplicationController
     def show
     end
 
-   
+    def pending_sign_ups
+        @pending_traders = User.where(role: :trader, status: 'pending')
+      end
 
     private
 
