@@ -14,22 +14,22 @@
             <%= render "devise/shared/error_messages", resource: resource %>
 
             <div class="form-group">
-              <%= f.label :first_name %>
+              <%= f.label :first_name, style: "color: #fff;" %>
               <%= f.text_field :first_name, autofocus: true, class: "form-control", placeholder: "Enter Your First Name" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :last_name %>
+              <%= f.label :last_name, style: "color: #fff;" %>
               <%= f.text_field :last_name, class: "form-control", placeholder: "Enter Your Last Name" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :email %>
+              <%= f.label :email, style: "color: #fff;" %>
               <%= f.email_field :email, autocomplete: "email", class: "form-control", placeholder: "Enter Your Email" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :password %>
+              <%= f.label :password, style: "color: #fff;" %>
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %> characters minimum)</em>
               <% end %><br />
@@ -37,12 +37,12 @@
             </div>
 
             <div class="form-group">
-              <%= f.label :password_confirmation %>
+              <%= f.label :password_confirmation, style: "color: #fff;" %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Your Password" %>
             </div>
 
             <div class="form-group">
-              <%= f.label :role %>
+              <%= f.label :role, style: "color: #fff;" %>
               <%= f.select :role, ['Admin', 'Trader'], { prompt: 'Select Role' }, class: "form-control" %>
             </div>
 
