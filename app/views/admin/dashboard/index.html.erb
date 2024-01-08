@@ -18,7 +18,7 @@
             </h3>
             <p>Email: <%= trader.email %></p>
             <p>Registration Date: <%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-             <%= link_to 'Update Trader Status', edit_admin_dashboard_path(trader.id) %>
+              <%= render 'edit_status_form', trader: trader %>
         </div>
     <% end %>
 </div>
