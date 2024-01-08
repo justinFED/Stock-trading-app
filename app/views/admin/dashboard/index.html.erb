@@ -5,6 +5,10 @@
     <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } , style: 'color: white;' %>
 </div>
 
+<div class='add-new-trader'>
+    <%= link_to 'Add New Trader', new_admin_dashboard_path %>
+</div>
+
 <div class='pending-traders'>
     <h1>Pending Trader Applications</h1>
     <% @pending_traders.each do |trader| %>
@@ -14,7 +18,7 @@
             </h3>
             <p>Email: <%= trader.email %></p>
             <p>Registration Date: <%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-             <%# link to edit form? so admin can change status from pending -> approved%>
+             <%= link_to 'Update Trader Status', edit_admin_dashboard_path(trader.id) %>
         </div>
     <% end %>
 </div>
