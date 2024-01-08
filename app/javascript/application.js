@@ -20,7 +20,7 @@ document.addEventListener("turbo:load", () => {
   const stockData = {
     labels: Array.from({ length: 50 }, (_, i) => i.toString()), 
     datasets: [{
-      label: "Fluctuating Pattern",
+      label: "NASDAQ",
       data: generateRandomData(),
       fill: false,
       borderColor: "#21ce99", 
