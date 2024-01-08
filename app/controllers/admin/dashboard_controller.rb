@@ -3,6 +3,7 @@ class Admin::DashboardController < ApplicationController
 
     def index
         @users = User.where(role: :trader)
+        @pending_traders = User.where(role: :trader, status: 'pending')
     end
 
     def new
