@@ -13,12 +13,6 @@ Rails.application.routes.draw do
     end
   end
   
-  
-
-
- 
- 
-
   namespace :trader do
     resources :dashboard, only: [:show, :edit, :update]
   end
