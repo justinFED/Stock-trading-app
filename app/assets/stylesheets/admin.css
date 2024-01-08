@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 
+
 :root {
   --black: #090d16;
   --dark-grey: #222428;
@@ -136,4 +137,11 @@ body {
   padding: 15px;
   border-radius: 8px;
   margin-bottom: 15px;
+}
+
+/* Show */
+
+.card {
+  color: #fff;
+  background-color: #222428;
 }
