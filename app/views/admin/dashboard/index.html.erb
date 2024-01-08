@@ -1,10 +1,10 @@
-<!-- Sidebar -->
-<div class="sidebar">
-<h1>Hello, <%= current_user.first_name %>!</h1>
-  
-  <button type="button" class="btn btn-primary btn-block mt-2" data-bs-toggle="modal" data-bs-target="#addUserModal">
-    Add New User
-  </button>
+<div class="wrapper">
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h1>Hello, <%= current_user.first_name %>!</h1>
+    <button type="button" class="btn btn-primary btn-block mt-2" data-bs-toggle="modal" data-bs-target="#addUserModal">
+      Add New User
+    </button>
   <button type="button" class="btn btn-warning btn-block mt-2" data-bs-toggle="modal" data-bs-target="#editUserModal">
     Edit User
   </button>
@@ -27,10 +27,16 @@
 </div>
 
 
+<!-- Main Content -->
 <div class="content">
- 
-
-  <p>Welcome to the Admin Dashboard.</p>
-
+  <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
+    <canvas id="stockChart"></canvas>
+    <div class="bottom-info">
+      <p class="total-value">Total Value: $19,710.45</p>
+      <p class="today">Today: $51.21 (+0.25%)</p>
+      <p class="buying-power">Buying Power: $6,151.79</p>
+    </div>
+  </div>
+</div>
 
 </div>

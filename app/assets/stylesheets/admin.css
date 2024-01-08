@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 body {
-  background-color: #f8f9fa;
+  background-color: #090d16;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
 
 .sidebar {
@@ -27,7 +30,46 @@ body {
   background-color: #212529;
 }
 
+/* Graph */
+
 .content {
-  margin-left: 260px;
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
   padding: 20px;
+  overflow-y: auto;
 }
+
+.graph-container {
+  width: 100%;
+  height: calc(50vh - 40px); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 0;
+}
+
+.bottom-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+  
+}
+
+.total-value, .buying-power {
+  flex: 1; 
+}
+
+.today {
+  flex: 2;
+  color: #21ce99 
+}
+
+.bottom-info p {
+  margin: 5px;
+  font-size: 30px;
+}
+
