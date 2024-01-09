@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
   
   namespace :trader do
-    resources :dashboard, only: [:show, :edit, :update]
+    resources :dashboard, only: [:index, :show, :edit, :update]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

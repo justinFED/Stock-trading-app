@@ -24,4 +24,10 @@ RSpec.describe "Admin::Dashboards", type: :request do
    end
   end
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 142c900641f9d381790fad8517d91113f1a81adf
 end
