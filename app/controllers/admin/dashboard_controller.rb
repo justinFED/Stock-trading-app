@@ -6,6 +6,11 @@ class Admin::DashboardController < ApplicationController
         @pending_traders = User.where(role: :trader, status: 'pending')
     end
 
+    def pending_sign_ups
+        @pending_traders = User.where(role: :trader, status: 'pending')
+      end
+    
+
     def new
         @user = User.new(role: :trader)
     end
@@ -33,9 +38,7 @@ class Admin::DashboardController < ApplicationController
     def show
     end
 
-    def pending_sign_ups
-        @pending_traders = User.where(role: :trader, status: 'pending')
-      end
+ 
       
 
     private

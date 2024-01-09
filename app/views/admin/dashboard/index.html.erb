@@ -1,4 +1,3 @@
-
 <div class="wrapper">
   <!-- Sidebar -->
   <div class="sidebar">
@@ -7,31 +6,27 @@
     </div>
     <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
     <div class="menu-items">
-    <%= link_to 'Add New User', new_admin_dashboard_path %>
-    <%= link_to 'See All Users', '#' %>
-    <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
-    <%= link_to 'See All Transactions', '#' %>
-    <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+      <%= link_to 'Add New User', new_admin_dashboard_path %>
+      <%= link_to 'See All Users', '#' %>
+      <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
+      <%= link_to 'See All Transactions', '#' %>
+      <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+
+      <!-- Render user list in sidebar -->
+      <%= render 'admin/dashboard/user_list' %>
+    </div>
+ 
   </div>
-  
-    
-  </div>
-</div>
 
-
-
-<!-- Main Content -->
-<div class="content">
-  <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
-    <canvas id="stockChart"></canvas>
-    <div class="bottom-info">
-      <p class="total-value">Total Value: $19,710.45</p>
-      <p class="today">Today: $51.21 (+0.25%)</p>
-      <p class="buying-power">Buying Power: $6,151.79</p>
+  <!-- Main Content -->
+  <div class="content">
+    <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
+      <canvas id="stockChart"></canvas>
+      <div class="bottom-info">
+        <p class="total-value">Total Value: $19,710.45</p>
+        <p class="today">Today: $51.21 (+0.25%)</p>
+        <p class="buying-power">Buying Power: $6,151.79</p>
+      </div>
     </div>
   </div>
 </div>
-
-</div>
-
-
