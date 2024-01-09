@@ -1,0 +1,11 @@
+<h1>Welcome <%= @user.first_name %> <%= @user.last_name %></h1>
+<% if @user.status == 'pending' %>
+    <p>Your trader status is currently PENDING.</p>
+    <p>Please wait for an email confirmation to be sent to <%= @user.email %></p>
+    <p>Thank you for your patience!</p>
+<% else %>
+    <h1>Let's start trading!</h1>
+    <p>Trader Functions to be placed in this block </p>
+<% end %>
+
+<%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } , style: 'color: red;' %>
