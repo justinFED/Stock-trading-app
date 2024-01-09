@@ -8,7 +8,12 @@ class Admin::DashboardController < ApplicationController
 
     def pending_sign_ups
         @pending_traders = User.where(role: :trader, status: 'pending')
-      end
+    end
+
+    def all_users
+        @admins = User.where(role: :admin)
+        @approved_traders = User.where(role: :trader, status: 'approved')
+    end
     
 
     def new
@@ -29,7 +34,7 @@ class Admin::DashboardController < ApplicationController
 
     def update
         if @user.update(trader_params.except(:id, :password, :password_confirmation))
-            redirect_to admin_dashboard_index_path, notice: 'Trader info updated successfully.'
+            redirect_to admin_dashboard_path(@user), notice: 'Trader info updated successfully.'
         else
             render :edit
         end

@@ -1,0 +1,30 @@
+  <div class='approved-traders'>
+    <h1 class='mb-4'>List of all Users</h1>
+    <%= link_to 'Back to Home', admin_dashboard_index_path %>
+
+    <h2 class='mt-4'>List of all Admin Accounts</h2>
+    <% @admins.each do |admin| %>
+    <div class='admin-card'>
+      <h3 class='mb-2'>
+        <%= link_to "#{admin.first_name} #{admin.last_name}", admin_dashboard_path(admin) %>
+      </h3>
+      <p>Email: <%= admin.email %></p>
+      <p>Role: <%= admin.role %></p>
+      <p>Admin Since: <%= admin.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+    </div>
+    <% end %>
+
+    <h2 class='mt-4'>List of all Approved Traders</h2>
+    <% @approved_traders.each do |user| %>
+    <div class='trader-card'>
+      <h3 class='mb-2'>
+        <%= link_to "#{user.first_name} #{user.last_name}", admin_dashboard_path(user) %>
+      </h3>
+      <p>Email: <%= user.email %></p>
+      <p>Role: <%= user.role %></p>
+      <p>Status: <%= user.status %></p>
+      <p>Registration Date:<%= user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+    </div>
+  <% end %>
+ 
+  </div>
