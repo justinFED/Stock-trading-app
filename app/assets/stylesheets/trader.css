@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
+
+:root {
+  --black: #090d16;
+  --dark-grey: #222428;
+  --light-grey: #82929f;
+  --green: #21ce99;
+  --orange: #fc4d2d;
+  --hover-bg-color: #0d1320;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  background-color: #0d1320;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+}
+
+.trader-dashboard {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #82929f;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+
+  h1 {
+    color: #333;
+  }
+
+  .pending-status {
+    background-color: #ffd700;
+    padding: 10px;
+    border: 1px solid #e0b800;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .active-status {
+    background-color: #90ee90;
+    padding: 10px;
+    border: 1px solid #5cb85c;
+    border-radius: 5px;
+    margin-top: 20px;
+  }
+
+  .sign-out-link {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+  }
