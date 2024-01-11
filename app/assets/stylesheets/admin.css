@@ -17,12 +17,22 @@ body {
   font-weight: 300;
 }
 
+
 .logo-container {
   display: flex;
   align-items: center;
-  justify-content: center;
   margin-bottom: 20px;
- 
+}
+
+.admin-logo {
+  max-width: 90px;
+}
+
+.website-name {
+  font-size: 22px;
+  font-weight: bold;
+  margin-left: 10px;
+  color: #21ce99;
 }
 
 .menu-items {
