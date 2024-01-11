@@ -22,25 +22,19 @@
   </div>
   <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
   <div class="menu-items">
-    <%= link_to 'Buy Stocks', '#', class: 'btn btn-primary' %>
-    <%= link_to 'Sell Stocks', '#', class: 'btn btn-danger' %>
-    <%= link_to 'My Portfolio', '#', class: 'btn btn-info' %>
-    <%= link_to 'Transaction Page', '#', class: 'btn btn-success' %>
-    <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-secondary' %>
-  </div>
+  <%= link_to 'Buy Stocks', '#', class: 'custom-link buy-stocks' %>
+  <%= link_to 'Sell Stocks', '#', class: 'custom-link sell-stocks' %>
+  <%= link_to 'My Portfolio', '#' %>
+  <%= link_to 'Transaction Page', '#' %>
+  <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %>
+</div>
+
+
 </div>
 
 <!-- Main Content -->
-<div class="content">
-  <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
-    <canvas id="stockChart"></canvas>
-    <div class="bottom-info">
-      <p class="total-value">Total Value: $19,710.45</p>
-      <p class="today">Today: $51.21 (+0.25%)</p>
-      <p class="buying-power">Buying Power: $6,151.79</p>
-    </div>
-  </div>
-</div>
+<div class="traders-content">
+  
 </div>
 
 

@@ -22,14 +22,15 @@ body {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 
 .admin-logo {
-  max-width: 90px;
+  width: 100%;
 }
 
 .website-name {
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
   margin-left: 10px;
   color: #21ce99;
@@ -43,14 +44,32 @@ body {
   cursor: pointer;
   font-size: 20px;
   font-weight: 400;
+  
 }
 
 .menu-items a {
   color: #82929f;
   cursor: pointer;
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 22px;
+  font-weight: bolder;
   text-decoration: none;
+}
+
+.custom-link {
+  text-decoration: none;
+  transition: color 0.3s; 
+
+  &:hover.buy-stocks {
+    background-color: #ff0000;
+    color: #090d16;
+    padding: 5px;
+  }
+
+  &:hover.sell-stocks {
+    background-color: #00ff00;
+    color: #090d16;
+    padding: 5px;
+  }
 }
 
 .sidebar {
@@ -69,6 +88,7 @@ body {
 
 .sidebar a:hover {
   background-color: #222428;
+  padding: 5px;
 }
 
 
