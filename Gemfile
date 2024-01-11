@@ -8,11 +8,7 @@ gem "rails", "~> 7.1.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-<<<<<<< HEAD
 # Use Postgres as the database for Active Record
-=======
-# Use sqlite3 as the database for Active Record
->>>>>>> user_mailer
 gem 'pg'
 
 gem 'devise'

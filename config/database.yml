@@ -30,10 +30,3 @@ test:
 production:
   <<: *default
   database: stock-trading-app_production
-<<<<<<< HEAD
-=======
-  username: ENV['PGUSER']
-  password: ENV['PGPASSWORD']
-  host: ENV['PGHOST']
-  port: ENV['PGPORT']
->>>>>>> user_mailer
