@@ -135,35 +135,72 @@ body {
   font-size: 30px;
 }
 
+/* New User */
+
+.new-wrapper {
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.new-user {
+  width: 100%;
+  height: calc(50vh - 40px); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 40px;
+  justify-content: center;
+  align-items: center;
+}
+
 
 /* Pending */
 
 .admin-dash-wrapper {
-  background-color: var(--light-grey);
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
   padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-}
-
-.add-new-trader {
-  margin-bottom: 20px;
+  overflow-y: auto;
 }
 
 .pending-traders, .approved-traders {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  width: 100%;
+  height: calc(50vh - 40px); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 40px;
+  justify-content: center;
+  align-items: center;
 }
 
-.trader-card {
-  background-color: #fff;
-  border: 1px solid #ddd;
+.pending-header {
+  color: #fff;
+}
+
+.trader-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-header,
+.trader-row {
+  display: flex;
+  justify-content: space-between;
   padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.column {
+  flex: 1;
+  text-align: left;
+  color: #fff;
 }
 
 /* Show */
@@ -222,4 +259,47 @@ body {
 .table th {
   background-color: #222428;
   color: #fff;
+}
+
+/* Form */
+
+
+.edit-status-form {
+  margin-top: 10px; 
+}
+
+
+.status-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px; 
+}
+
+
+.status-radio-buttons {
+  margin-bottom: 10px; 
+}
+
+.pending-radio, .approved-radio {
+  margin-right: 5px; 
+}
+
+.radio-label {
+  font-weight: normal;
+  margin-left: 5px; 
+}
+
+
+.submit-button {
+  background-color: #21ce99; 
+  color: black; 
+  padding: 10px 15px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.submit-button:hover {
+  background-color: #1a9d81; 
 }
