@@ -10,20 +10,6 @@
   --hover-bg-color: #0d1320;
 }
 
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  background-color: #0d1320;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-}
-
 .trader-dashboard {
     max-width: 600px;
     margin: 0 auto;

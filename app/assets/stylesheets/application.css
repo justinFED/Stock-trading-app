@@ -6,6 +6,9 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #0d1320;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
   }
 
   #video-background {
@@ -18,40 +21,5 @@ body {
     height: auto;
     z-index: -1;
   }
-  
-  .card {
-    background-color: #0d1320;
-    border-radius: 15px; 
-  }
 
-/*Temp design --> just to see admin functions*/
-  .admin-dash-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding:10px;
-  }
-  .admin-top {
-    display: flex; 
-    flex-direction: row; 
-    background-color: black;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .pending-traders, .approved-traders {
-    margin-top: 20px;
-  }
-  .trader-card {
-    margin: auto;
-    width: 80%;
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  .approved {
-    background-color: lightgray;
-  }
   
-  /*end of temp designs*/

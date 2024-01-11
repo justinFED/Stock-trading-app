@@ -1,46 +1,51 @@
 <div class="wrapper">
-<!-- Sidebar -->
 <div class="sidebar">
-  <div class="logo-container">
-    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
-  </div>
-  <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
-  <div class="menu-items">
-    <%= link_to 'Add New User', new_admin_dashboard_path %>
-    <%= link_to 'See All Users', '/admin/dashboard/all_users' %>
-    <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
-    <%= link_to 'See All Transactions', '#' %>
-    <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+<div class="logo-container">
+<%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+<span class="website-name">Stock Harbor</span>
+</div>
+<div class="menu-items">
+<%= link_to 'Add New User', new_admin_dashboard_path %>
+<%= link_to 'See All Users', '/admin/dashboard/all_users' %>
+<%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
+<%= link_to 'See All Transactions', '#' %>
+<%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+</div>
+</div>
+
+<!-- Wrapper moved to content -->
+<div class="content-wrapper">
+  <!-- Content -->
+  <div class='see-all-traders'>
+    
+   
+
+    <div class="trader-list">
+      <h2 class='mt-4 list-heading'>List of all Approved Traders</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Status</th>
+            <th>Registration Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @approved_traders.each do |user| %>
+            <tr>
+              <td><%= link_to "#{user.first_name} #{user.last_name}", admin_dashboard_path(user), class: 'custom-link' %></td>
+              <td><%= user.email %></td>
+              <td><%= user.role %></td>
+              <td><%= user.status %></td>
+              <td><%= user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= link_to 'Back to Home', admin_dashboard_index_path, class: 'custom-link' %>
+    </div>
   </div>
 </div>
-  
-  <div class='approved-traders'>
-    <h1 class='mb-4'>List of all Users</h1>
-    <%= link_to 'Back to Home', admin_dashboard_index_path %>
-
-    <h2 class='mt-4'>List of all Admin Accounts</h2>
-    <% @admins.each do |admin| %>
-    <div class='admin-card'>
-      <h3 class='mb-2'>
-        <%= link_to "#{admin.first_name} #{admin.last_name}", admin_dashboard_path(admin) %>
-      </h3>
-      <p>Email: <%= admin.email %></p>
-      <p>Role: <%= admin.role %></p>
-      <p>Admin Since: <%= admin.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-    </div>
-    <% end %>
-
-    <h2 class='mt-4'>List of all Approved Traders</h2>
-    <% @approved_traders.each do |user| %>
-    <div class='trader-card'>
-      <h3 class='mb-2'>
-        <%= link_to "#{user.first_name} #{user.last_name}", admin_dashboard_path(user) %>
-      </h3>
-      <p>Email: <%= user.email %></p>
-      <p>Role: <%= user.role %></p>
-      <p>Status: <%= user.status %></p>
-      <p>Registration Date:<%= user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-    </div>
-  <% end %>
- 
-  </div>
+</div>

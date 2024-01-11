@@ -1,10 +1,9 @@
 <div class="wrapper">
-  <!-- Sidebar -->
-  <div class="sidebar">
-    <div class="logo-container">
-      <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
-    </div>
-    <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
+<div class="sidebar">
+  <div class="logo-container">
+    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+    <span class="website-name">Stock Harbor</span>
+  </div>
     <div class="menu-items">
       <%= link_to 'Add New User', new_admin_dashboard_path %>
       <%= link_to 'See All Users', '/admin/dashboard/all_users' %>

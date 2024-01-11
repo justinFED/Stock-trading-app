@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 
-
 :root {
   --black: #090d16;
   --dark-grey: #222428;
@@ -10,13 +9,10 @@
   --hover-bg-color: #0d1320;
 }
 
-
 body {
-  background-color: #090d16;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
+  margin: 0;
+  padding: 0;
 }
-
 
 .logo-container {
   display: flex;
@@ -72,6 +68,8 @@ body {
   }
 }
 
+/* Sidebar */
+
 .sidebar {
   height: 100%;
   width: 300px;
@@ -83,7 +81,6 @@ body {
   padding-top: 20px;
   padding-left: 10px;
   padding-right: 10px;
-  
 }
 
 .sidebar a:hover {
@@ -174,4 +171,55 @@ body {
 .card {
   color: #fff;
   background-color: #222428;
+}
+
+.content-wrapper {
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* All users */
+.see-all-traders {
+  width: 100%;
+  height: calc(50vh - 40px); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-heading {
+  color: #fff;
+}
+
+
+.trader-list {
+  margin-top: 20px;
+  width: 100%;
+  
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+ 
+}
+
+.table th, .table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.table th {
+  background-color: #222428;
+  color: #fff;
 }
