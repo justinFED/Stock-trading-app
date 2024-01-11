@@ -34,6 +34,9 @@ class Admin::DashboardController < ApplicationController
 
     def update
         if @user.update(trader_params.except(:id, :password, :password_confirmation))
+            if @user.status == 'approved'
+                UserMailer.approved_email(@user).deliver_later
+            end
             redirect_to admin_dashboard_path(@user), notice: 'Trader info updated successfully.'
         else
             render :edit
