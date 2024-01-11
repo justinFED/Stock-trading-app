@@ -40,11 +40,20 @@
               <%= f.label :password_confirmation, style: "color: #fff;" %>
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Confirm Your Password" %>
             </div>
-
+<!--
             <div class="form-group">
               <%= f.label :role, style: "color: #fff;" %>
-              <%= f.select :role, ['Admin', 'Trader'], { prompt: 'Select Role' }, class: "form-control" %>
+              <%= f.select :role, User.roles.keys.map { |role| [role.humanize, role] }, { prompt: 'Select Role' }, class: "form-control" %>
             </div>
+-->
+            <div class="form-group">
+              <%= f.label :role, style: "color: #fff;" %>
+              <%= f.hidden_field :role, value: 'trader' %>
+              <label>
+                <%= radio_button_tag 'user_role', 'trader', true %>
+                Trader
+              </label>
+           </div>
 
             <div class="form-group">
               <%= f.submit "Sign up", class: "btn btn-primary" %>
