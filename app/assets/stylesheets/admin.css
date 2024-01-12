@@ -205,11 +205,36 @@ body {
 
 /* Show */
 
-.card {
-  color: #fff;
-  background-color: #222428;
+.show-container {
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+  
 }
 
+.show-card {
+  width: 100%;
+  height: calc(50vh - 40px); 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 0 0 40px;
+  justify-content: center;
+  align-items: center;
+  
+ 
+}
+
+.card-title, .card-body {
+  color: #fff;
+}
+
+
+
+  /* All users */
 .content-wrapper {
   position: absolute;
   top: 0;
@@ -220,7 +245,7 @@ body {
   overflow-y: auto;
 }
 
-/* All users */
+
 .see-all-traders {
   width: 100%;
   height: calc(50vh - 40px); 
