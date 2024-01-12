@@ -32,9 +32,80 @@
 </div>
 
 <!-- Main Content -->
-<div class="traders-content">
-  
+<div class="traders-wrapper">
+  <div class="traders-content">
+
+    <div class="add-money-form">
+      <h2>Add Money to Your Account</h2>
+      <%= form_for :money, url: '#' do |f| %>
+        <div class="form-group">
+          <%= f.label :amount, class: 'form-label' %>
+          <%= f.number_field :amount, class: 'form-control', placeholder: 'Enter amount' %>
+        </div>
+        <div class="form-actions">
+          <%= f.submit 'Add Money', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="account-summary">
+      <h2>Account Summary</h2>
+      <p class="summary-item">Account Type: Standard</p>
+      <p class="summary-item">Account Status: Active</p>
+      <p class="summary-item">Buying Power: $6,151.79</p>
+    </div>
+
+    <div class="open-positions">
+      <h2>Open Positions</h2>
+      <ul>
+        <li>Stock XYZ: 15 shares</li>
+        <li>Stock ABC: 8 shares</li>
+        <!-- Add more open positions as needed -->
+      </ul>
+    </div>
+
+    <div class="market-news">
+      <h2>Market News</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam et justo urna.</p>
+      <p>Curabitur eget velit vel libero fringilla dapibus. In hac habitasse platea dictumst.</p>
+    </div>
+
+    <div class="trade-history">
+      <h2>Trade History</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Symbol</th>
+            <th>Type</th>
+            <th>Shares</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2024-01-15</td>
+            <td>XYZ</td>
+            <td>Buy</td>
+            <td>10</td>
+            <td>$500.00</td>
+          </tr>
+          <tr>
+            <td>2024-01-14</td>
+            <td>ABC</td>
+            <td>Sell</td>
+            <td>5</td>
+            <td>$200.00</td>
+          </tr>
+          <!-- Add more trade history rows as needed -->
+        </tbody>
+      </table>
+    </div>
+
+  </div>
 </div>
+
+
 
 
 

@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 
-
 :root {
   --black: #090d16;
   --dark-grey: #222428;
@@ -10,39 +9,82 @@
   --hover-bg-color: #0d1320;
 }
 
+/* Dashboard Styling */
 .trader-dashboard {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #82929f;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #82929f;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
 
-  h1 {
-    color: #333;
-  }
+h1 {
+  color: #333;
+}
 
-  .pending-status {
-    background-color: #ffd700;
-    padding: 10px;
-    border: 1px solid #e0b800;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+.pending-status {
+  background-color: #ffd700;
+  padding: 10px;
+  border: 1px solid #e0b800;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
-  .active-status {
-    background-color: #90ee90;
-    padding: 10px;
-    border: 1px solid #5cb85c;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+.active-status {
+  background-color: #90ee90;
+  padding: 10px;
+  border: 1px solid #5cb85c;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
-  .sign-out-link {
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    display: block;
-  }
+.sign-out-link {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+}
+
+/* Main Content Styling */
+.traders-wrapper {
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.traders-content {
+  width: 100%;
+  height: calc(50vh - 40px);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 20px 0 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Section Styling */
+.account-summary,
+.add-money-form,
+.open-positions,
+.market-news,
+.trade-history {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.summary-item {
+  margin-bottom: 10px;
+}
+
+.add-money-form {
+  max-width: 400px; /* Adjust as needed */
+}

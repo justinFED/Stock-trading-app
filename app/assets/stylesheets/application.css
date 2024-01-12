@@ -22,4 +22,18 @@ body {
     z-index: -1;
   }
 
+  /* Login */
+
+  .login-card  {
+    background-color: #0d1320;
+    padding: 20px;
+    border-radius: 10px;
+
+  }
+
+  .register-card {
+    background-color: #0d1320;
+    border-radius: 10px;
+  }
+
   

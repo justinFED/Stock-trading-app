@@ -15,17 +15,24 @@
   </div>
 </div>
 
-<div class='admin-dash-wrapper'>
-  <div class='pending-traders'>
-    <h1 class='pending-header'>Pending Trader Applications</h1>
 
+
+<div class='admin-dash-wrapper'>
+
+  <div class='pending-traders'>
+
+    <h1 class='pending-header'>Pending Trader Applications</h1>
+   
     <div class='trader-table'>
+  
       <div class='table-header'>
         <div class='column'>Name</div>
         <div class='column'>Email</div>
         <div class='column'>Registration Date</div>
         <div class='column'>Actions</div>
       </div>
+
+      
 
       <% @pending_traders.each do |trader| %>
         <div class='trader-row'>
@@ -34,12 +41,20 @@
           <div class='column'><%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></div>
           <div class='column'>
             <%= render 'edit_status_form', trader: trader %>
+           
           </div>
+        
         </div>
+       
       <% end %>
+   
+      
     </div>
+    <%= link_to 'Back to Home', admin_dashboard_index_path, class: 'btn btn-primary mt-4' %>
   </div>
+
 </div>
+
 
 
 
