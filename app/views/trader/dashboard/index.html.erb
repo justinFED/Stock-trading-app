@@ -49,15 +49,6 @@
       <!-- Account summary details go here -->
     </div>
 
-    <!-- Open Positions -->
-    <div class="open-positions">
-      <h2>Open Positions</h2>
-      <ul>
-        <li>Stock XYZ: 15 shares</li>
-        <li>Stock ABC: 8 shares</li>
-        <!-- Add more open positions as needed -->
-      </ul>
-    </div>
 
     <!-- Market News -->
     <div class="market-news">
@@ -75,18 +66,22 @@
 
     <!-- Stocks Section -->
     
-  
-    <% if @quote %>
-    <h2>Stock Information for <%= @quote.symbol %></h2>
-    <p>Company Name: <%= @quote.company_name %></p>
-    <p>Latest Price: $<%= @quote.latest_price %></p>
-    <% if @quote.respond_to?(:is_us_market_open) %>
-      <p>Is US Market Open: <%= @quote.is_us_market_open ? 'Yes' : 'No' %></p>
-    <% else %>
-      <p>Is US Market Open: Not Available</p>
+    <!-- Stocks Search -->
+    <%= form_tag(trader_dashboard_index_path, method: :get) do %>
+      <%= label_tag 'Stock Symbol' %>
+      <%= text_field_tag 'symbol', params[:symbol] || 'AAPL' %>
+      <%= submit_tag 'Get Stock Information' %>
     <% end %>
+    
+    <!-- Stocks Info -->
+
+    <% if @quote %>
+    <h2 style="color: blue;">Stock Symbol: <%= @quote.symbol %></h2>
+    <p style="color: green;">Company Name: <%= @quote.company_name %></p>
+    <p style="color: red;">Latest Price: $<%= @quote.latest_price %></p>
+    
   <% else %>
-    <p>No stock information available.</p>
+    <p style="color: gray;">No stock information available.</p>
   <% end %>
     
     
