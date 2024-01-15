@@ -1,0 +1,8 @@
+<% if @transaction.transaction_type == 'buy' %>
+  <h1>Buy stock</h1>
+<% else %>
+  <h1>Sell stock</h1>
+<% end %>
+<%= render "form", method: :post, url: new_trader_transaction_path %>
+
+<%= link_to "Back to dashboard", trader_dashboard_index_path %>

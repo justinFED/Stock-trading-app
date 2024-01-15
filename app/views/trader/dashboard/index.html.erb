@@ -86,18 +86,30 @@
     <!-- Stocks Section -->
     
   
-    <% if @quote %>
-    <h2>Stock Information for <%= @quote.symbol %></h2>
-    <p>Company Name: <%= @quote.company_name %></p>
-    <p>Latest Price: $<%= @quote.latest_price %></p>
-    <% if @quote.respond_to?(:is_us_market_open) %>
-      <p>Is US Market Open: <%= @quote.is_us_market_open ? 'Yes' : 'No' %></p>
-    <% else %>
-      <p>Is US Market Open: Not Available</p>
-    <% end %>
-  <% else %>
-    <p>No stock information available.</p>
+   <h4>Search stock: </h4>
+  <%= form_tag(trader_dashboard_index_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
   <% end %>
+
+  <% if @stock %>
+    <table class='table-fixed'>
+      <thead>
+        <tr>
+          <th>Stock</th>
+          <th>Latest Price</th>
+          <th>Change</th>
+          <th>High</th>
+          <th>Low</th>
+          <th>Action</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'stock', locals: { stock: @stock } %>
+    </table>
+  <% else %>
+    <h4> No record found </h4>
+  <% end %> <br/>
     
     
 

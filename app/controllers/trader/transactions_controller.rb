@@ -8,6 +8,9 @@ class Trader::TransactionsController < ApplicationController
 
     def new
         @transaction = Transaction.new
+        @transaction.stock_symbol = params[:symbol]
+        @transaction.price = params[:unit_price]
+        @transaction.transaction_type = params[:transaction_type]
     end
 
     def create
