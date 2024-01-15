@@ -1,7 +1,8 @@
 <%= form_with(url: url, method: method) do |f| %>
-  <%- if @transaction.errors %>
+  <% if @transaction.errors.any? %>
     <p><%= @transaction.errors.full_messages.join(', ') %></p>
   <% end %>
+
   <div class="field">
     <%= f.label :stock_symbol %><br />
     <%= f.text_field :stock_symbol, value: @transaction.stock_symbol, readonly: true %>
@@ -17,10 +18,10 @@
     <%= f.number_field :quantity, value: @transaction.quantity %>
   </div>
 
-  <%= f.hidden_field :user_id, value: @transaction.user_id %>
-  <%= f.hidden_field :transaction_type, value: @transaction.transaction_type %>
+  <%= f.hidden_field :user_id, value: @transaction.user.id %>
+  <%= f.hidden_field :transaction_type, value: @transaction.stock_symbol %>
 
-  <% if @transaction.transaction_type == 'buy' %>
+  <% if params[:transaction][:transaction_type] == 'buy' %>
     <%= f.submit "Buy" %>
   <% else %>
     <%= f.submit "Sell" %>

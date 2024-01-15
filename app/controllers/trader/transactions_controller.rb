@@ -7,14 +7,12 @@ class Trader::TransactionsController < ApplicationController
     end
 
     def new
-        @transaction = Transaction.new
-        @transaction.stock_symbol = params[:symbol]
-        @transaction.price = params[:unit_price]
-        @transaction.transaction_type = params[:transaction_type]
+        @transaction = current_user.transactions.new(transaction_params)
+        
     end
 
     def create
-        @transaction = current_user.Transaction.new(transaction_params)
+        @transaction = current_user.transactions.new(transaction_params)
         if @transaction.save
             redirect_to trader_transactions_path, notice: "Transaction successful."
         else
@@ -25,7 +23,7 @@ class Trader::TransactionsController < ApplicationController
     private
 
     def transaction_params
-        params.require(:transaction).permit(:stock_symbol, :quantity, :price, :transaction_type)
+        params.require(:transaction).permit(:stock_symbol, :quantity, :price, :transaction_type, :user_id)
     end
 
 end
