@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   validates_presence_of :first_name, :last_name, :role
   validates :balance, numericality: { greater_than_or_equal_to: 0 }
+  attr_accessor :top_up_amount
 
   has_many :portfolios
 
@@ -19,7 +20,11 @@ class User < ApplicationRecord
   def set_default_values
     self.role ||= :trader
     self.status ||= :pending
-    self.balance ||= 0
+  end
+
+  def top_up_balance(amount)
+    self.balance += amount
+    save
   end
 
 end
