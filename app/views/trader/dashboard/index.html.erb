@@ -26,15 +26,13 @@
   <%= link_to 'Top Up', top_up_trader_dashboard_index_path %>
   <%# end TEMP DESIGN for balance functionality %>
 
-  <%#  TEMP DESIGN for transactions  %>
-  <%= link_to 'Trade', trader_transactions_path, class: 'custom-link buy-stocks' %>
 
   <%# TEMP DESIGN for transactions
   <%= link_to 'Buy Stocks', '#', class: 'custom-link buy-stocks' %>
   <%#= link_to 'Sell Stocks', '#', class: 'custom-link sell-stocks' %>
 
   <%= link_to 'My Portfolio', '#' %>
-  <%= link_to 'Transaction Page', '#' %>
+  <%= link_to 'Transaction Page', trader_transactions_path %>
   <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %>
 </div>
 
