@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       get 'top_up', to: 'dashboard#top_up', on: :collection
       post 'top_up', to: 'dashboard#top_up', on: :collection
     end
+
+    resources :transactions, only: [:index, :new, :create]
+
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

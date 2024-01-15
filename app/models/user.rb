@@ -9,6 +9,7 @@ class User < ApplicationRecord
   attr_accessor :top_up_amount
 
   has_many :portfolios
+  has_many :transactions
 
   enum role: { trader: 0, admin: 1 }
   enum status: { pending: 0, approved: 1}

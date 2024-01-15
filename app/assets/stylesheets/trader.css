@@ -97,3 +97,9 @@ h1 {
 .top_up_form h1{
   color: white
 }
+
+.transactions_page {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
