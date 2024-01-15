@@ -26,6 +26,7 @@ class User < ApplicationRecord
   def set_default_values
     self.role ||= :trader
     self.status ||= :pending
+    self.status ||= 0
   end
 
 end
