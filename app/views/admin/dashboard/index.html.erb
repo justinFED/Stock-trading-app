@@ -19,8 +19,9 @@
   <!-- Main Content -->
 <div class="admin-content">
   <div class="admin-wrapper">
-    <h1 class="wrapper-header">Welcome, <%= current_user.first_name %>!</h1>
+  <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name %></span>!</h1>
 
+    
     <div class="table-box">
       <h1 class="stock-heading">Current Stock Prices</h1>
       <table class="stock-table">
@@ -47,6 +48,8 @@
       </table>
     </div>
 
+
+    <div class="flex-container">
     <div class="news-box">
     <h1 class="news-heading">Market News</h1>
     <% @market_news.each do |article| %>
@@ -59,6 +62,15 @@
   
 
 
+  <div class="graph-box">
+  <h1 class="box-heading">Additional Content</h1>
+
+</div>
+
+
+
+
+</div>
   </div>
 </div>
 

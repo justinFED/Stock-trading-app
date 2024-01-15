@@ -162,7 +162,7 @@ body {
 /* Market News */
 
 .news-box {
-  width: 500px;
+  width: 600px;
   height: 500px;
   background-color: #f5f5f5;
   padding: 20px;
@@ -395,6 +395,29 @@ body {
   background-color: #1a9d81; 
 }
 
+
+
+/* Below Content */
+.flex-container {
+  display: flex;
+  width: 100%;
+}
+
+
+.graph-box {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px 0 20px 20px;
+  width: 100%;
+}
+
+.box-heading {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
 
 
