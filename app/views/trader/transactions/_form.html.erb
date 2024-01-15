@@ -1,4 +1,4 @@
-<%= form_with(url: url, method: method) do |f| %>
+<%= form_with(model: @transaction, url: trader_transactions_path, method: :post) do |f| %>
   <% if @transaction.errors.any? %>
     <p><%= @transaction.errors.full_messages.join(', ') %></p>
   <% end %>
@@ -19,7 +19,7 @@
   </div>
 
   <%= f.hidden_field :user_id, value: @transaction.user.id %>
-  <%= f.hidden_field :transaction_type, value: @transaction.stock_symbol %>
+  <%= f.hidden_field :transaction_type, value: @transaction.transaction_type %>
 
   <% if params[:transaction][:transaction_type] == 'buy' %>
     <%= f.submit "Buy" %>

@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     end
 
     resources :transactions, only: [:index, :new, :create]
+    resources :portfolios, only: [:index]
 
   end
 
