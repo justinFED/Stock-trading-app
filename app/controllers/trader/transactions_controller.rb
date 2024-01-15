@@ -5,51 +5,48 @@ class Trader::TransactionsController < ApplicationController
       @user = current_user
       @transactions = @user.transactions
     end
-
+  
     def new
-        @transaction = current_user.transactions.new(transaction_params)
-        
+      @transaction = current_user.transactions.new(transaction_params)
     end
-
+  
     def create
-        @transaction = current_user.transactions.new(transaction_params)
-
-        if transaction_can_proceed?
-            if @transaction.save
-                redirect_to trader_transactions_path, notice: "Transaction successful."
-                update_user_balance
-            else
-                render :new
-            end
+      @transaction = current_user.transactions.new(transaction_params)
+  
+      if transaction_can_proceed?
+        if @transaction.save
+          redirect_to trader_transactions_path, notice: "Transaction successful."
+          update_user_balance
         else
-            flash.now[:alert] = "Transaction cannot proceed."
-            render :new
+          render :new
         end
+      else
+        flash.now[:alert] = "Transaction cannot proceed."
+        render :new
+      end
     end
-
+  
     private
-
+  
     def transaction_params
-        params.require(:transaction).permit(:stock_symbol, :quantity, :price, :transaction_type, :user_id)
+      params.require(:transaction).permit(:stock_symbol, :quantity, :price, :transaction_type, :user_id)
     end
-
+  
     def transaction_can_proceed?
-        if @transaction.buy?
-            @transaction.total_cost <= current_user.balance
-        elsif @transaction.sell?
-            current_user.has_stock?(@transaction.stock_symbol, @transaction.quantity)
-        else
-            false
-        end
+      if @transaction.buy?
+        @transaction.total_cost <= current_user.balance
+      elsif @transaction.sell?
+        @transaction.can_sell
+      else
+        false
+      end
     end
-
+  
     def update_user_balance
-        if @transaction.buy?
-            current_user.update(balance: current_user.balance - @transaction.total_cost)
-        elsif @transaction.sell?
-            current_user.update(balance: current_user.balance + @transaction.total_selling_price)
-        end
+      if @transaction.buy?
+        current_user.update(balance: current_user.balance - @transaction.total_cost)
+      elsif @transaction.sell?
+        current_user.update(balance: current_user.balance + @transaction.total_selling_price)
+      end
     end
-
-
 end

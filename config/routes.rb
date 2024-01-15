@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
   
   namespace :trader do
+    get 'portfolios/index'
     resources :dashboard, only: [:index, :show, :edit, :update] do
       get 'top_up', to: 'dashboard#top_up', on: :collection
       post 'top_up', to: 'dashboard#top_up', on: :collection

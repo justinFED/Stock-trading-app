@@ -1,0 +1,15 @@
+<div>
+    <h1>Portfolio<h1>
+    <h3>Total Value: <%= @total %> </h3>
+    <thead>
+        <tr>
+            <th>Stock</th>
+            <th>Current Unit Price</th>
+            <th>Shares</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <%- @portfolios.each do |portfolio| %>
+    <%= render partial: 'portfolio', locals: { portfolio: portfolio } %>
+     <% end %>
+</div>
