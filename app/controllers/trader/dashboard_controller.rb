@@ -17,6 +17,25 @@ class Trader::DashboardController < ApplicationController
         redirect_to trader_dashboard_index_path
       end
     end
+
+    def top_up
+      @top_up_amount = 0.0
+  
+      if request.post?
+        top_up_amount = params[:top_up_amount].to_f
+  
+        if top_up_amount > 0
+          current_user.top_up_balance(top_up_amount)
+          flash[:notice] = "Successfully topped up your balance."
+          redirect_to trader_dashboard_index_path
+          return
+        else
+          flash.now[:alert] = "Top-up amount is invalid."
+        end
+      end
+  
+      render :top_up
+    end
   
     private
   

@@ -11,11 +11,15 @@ Rails.application.routes.draw do
     resources :dashboard, only: [:index, :new, :create, :edit, :update, :show] do
       get 'pending_sign_ups', to: 'dashboard#pending_sign_ups', on: :collection
       get 'all_users', to: 'dashboard#all_users', on: :collection
+     
     end
   end
   
   namespace :trader do
-    resources :dashboard, only: [:index, :show, :edit, :update]
+    resources :dashboard, only: [:index, :show, :edit, :update] do
+      get 'top_up', to: 'dashboard#top_up', on: :collection
+      post 'top_up', to: 'dashboard#top_up', on: :collection
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -21,10 +21,10 @@
     <span class="website-name">Stock Harbor</span>
   </div>
   <div class="menu-items">
-  <%# TEMP UI for balance functionality %>
+  <%# TEMP DESIGN for balance functionality %>
   <p>Current Balance: <%= number_to_currency(current_user.balance) %></p>
-  <%= link_to 'Top Up', '#' %>
-  <%# TEMP UI for balance functionality %>
+  <%= link_to 'Top Up', top_up_trader_dashboard_index_path %>
+  <%# end TEMP DESIGN for balance functionality %>
   <%= link_to 'Buy Stocks', '#', class: 'custom-link buy-stocks' %>
   <%= link_to 'Sell Stocks', '#', class: 'custom-link sell-stocks' %>
   <%= link_to 'My Portfolio', '#' %>

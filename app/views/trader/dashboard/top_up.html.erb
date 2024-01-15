@@ -1,0 +1,13 @@
+<div class='top_up_form'>
+
+<h1>Top Up Your Balance</h1>
+
+<%= form_with(url: top_up_trader_dashboard_index_path, method: :post) do |form| %>
+    <div>
+        <%= form.label :top_up_amount %>
+        <%= form.number_field :top_up_amount, value: @top_up_amount %>
+    </div>
+    <%= form.submit "Top Up" %>
+<% end %>
+
+</div>

@@ -15,16 +15,16 @@ class User < ApplicationRecord
 
   before_create :set_default_values
 
+  def top_up_balance(amount)
+    self.balance += amount
+    save
+  end
+
   private
 
   def set_default_values
     self.role ||= :trader
     self.status ||= :pending
-  end
-
-  def top_up_balance(amount)
-    self.balance += amount
-    save
   end
 
 end
