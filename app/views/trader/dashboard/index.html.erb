@@ -57,15 +57,6 @@
       <!-- Account summary details go here -->
     </div>
 
-    <!-- Open Positions -->
-    <div class="open-positions">
-      <h2>Open Positions</h2>
-      <ul>
-        <li>Stock XYZ: 15 shares</li>
-        <li>Stock ABC: 8 shares</li>
-        <!-- Add more open positions as needed -->
-      </ul>
-    </div>
 
     <!-- Market News -->
     <div class="market-news">
@@ -88,6 +79,7 @@
   <%= form_tag(trader_dashboard_index_path, method: :get) do %>
       <%= text_field_tag(:search, params[:search], placeholder: 'Enter stock symbol...') %>
       <%= submit_tag ("Search") %>
+
   <% end %>
 
   <% if @stock %>

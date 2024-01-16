@@ -1,4 +1,5 @@
 class Trader::DashboardController < ApplicationController
+
     before_action :authenticate_user!
   
     def index
@@ -39,5 +40,6 @@ class Trader::DashboardController < ApplicationController
   
       render :top_up
     end
+
   end
-  
+end

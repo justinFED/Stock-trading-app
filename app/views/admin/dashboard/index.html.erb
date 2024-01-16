@@ -17,14 +17,63 @@
   </div>
 
   <!-- Main Content -->
-  <div class="content">
-    <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
-      <canvas id="stockChart"></canvas>
-      <div class="bottom-info">
-        <p class="total-value">Total Value: $19,710.45</p>
-        <p class="today">Today: $51.21 (+0.25%)</p>
-        <p class="buying-power">Buying Power: $6,151.79</p>
-      </div>
+<div class="admin-content">
+  <div class="admin-wrapper">
+  <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name %></span>!</h1>
+
+    
+    <div class="table-box">
+      <h1 class="stock-heading">Current Stock Prices</h1>
+      <table class="stock-table">
+        <thead>
+          <tr>
+            <th>Symbol</th>
+            <th>Company Name</th>
+            <th>Latest Price</th>
+            <th>Change Percent</th>
+            <th>Volume</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @stock_prices.each do |stock_price| %>
+            <tr>
+              <td><%= stock_price.symbol %></td>
+              <td><%= stock_price.company_name %></td>
+              <td>$<%= stock_price.latest_price %></td>
+              <td><%= stock_price.change_percent %></td>
+              <td><%= stock_price.iex_volume %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
     </div>
+
+
+    <div class="flex-container">
+    <div class="news-box">
+    <h1 class="news-heading">Market News</h1>
+    <% @market_news.each do |article| %>
+      <div class="news-article">
+        <h3 class="article-title"><%= article['headline'] %></h3>
+        <p class="article-source">Source: <%= article['source'] %></p>
+      </div>
+    <% end %>
+  </div>
+  
+
+
+  <div class="graph-box">
+  <h1 class="box-heading">Additional Content</h1>
+  <div id="stockGraph"></div>
+</div>
+
+
+
+
+</div>
   </div>
 </div>
+
+  
+
+  
