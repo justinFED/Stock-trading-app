@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    get 'transactions/index'
     resources :dashboard, only: [:index, :new, :create, :edit, :update, :show] do
       get 'pending_sign_ups', to: 'dashboard#pending_sign_ups', on: :collection
       get 'all_users', to: 'dashboard#all_users', on: :collection
