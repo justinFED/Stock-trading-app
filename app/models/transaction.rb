@@ -21,11 +21,6 @@ class Transaction < ApplicationRecord
     quantity * price
   end
 
-  def total_selling_price
-    quantity * price
-  end
-
-
   private
 
   def check_if_can_proceed

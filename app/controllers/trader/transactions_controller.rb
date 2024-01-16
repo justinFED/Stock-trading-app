@@ -31,7 +31,7 @@ class Trader::TransactionsController < ApplicationController
       if @transaction.buy?
         current_user.update(balance: current_user.balance - @transaction.total_cost)
       elsif @transaction.sell?
-        current_user.update(balance: current_user.balance + @transaction.total_selling_price)
+        current_user.update(balance: current_user.balance + @transaction.total_cost)
       end
     end
 end
