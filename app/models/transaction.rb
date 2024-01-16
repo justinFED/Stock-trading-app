@@ -1,6 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :user
   validates_presence_of :quantity, :transaction_type, :price, :stock_symbol
+  validate :check_if_can_proceed, on: :create
 
   enum transaction_type: { buy: 'buy', sell: 'sell' }
 
@@ -13,8 +14,6 @@ class Transaction < ApplicationRecord
     end
   end
 
-
-  before_create :check_if_can_proceed
   after_create :update_portfolio
   
 
@@ -31,14 +30,16 @@ class Transaction < ApplicationRecord
 
   def check_if_can_proceed
     if transaction_type == 'buy'
-      user.balance >= total_cost
+      errors.add(:base, "Not enough balance.") unless user.balance >= total_cost
     elsif transaction_type == 'sell'
-      user.portfolios.find_by(stock: stock_symbol).present?
-    else 
-      false
+      portfolio = user.portfolios.find_by(stock: stock_symbol)
+      unless portfolio.present? && portfolio.shares >= quantity && quantity.positive?
+        errors.add(:base, "Insufficient shares to sell")
+      end
+    else
+      errors.add(:base, "Invalid transaction type")
     end
   end
-
 
   def update_portfolio
     portfolio = user.portfolios.find_or_initialize_by(stock: stock_symbol)
@@ -49,4 +50,5 @@ class Transaction < ApplicationRecord
     end
     portfolio.save
   end
+  
 end
