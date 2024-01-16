@@ -1,8 +1,26 @@
-<div>
-  <div>
+<div class="wrapper">
+<div class="sidebar">
+  <div class="logo-container">
+    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+    <span class="website-name">Stock Harbor</span>
+  </div>
+    <div class="menu-items">
+      <%= link_to 'Add New User', new_admin_dashboard_path %>
+      <%= link_to 'See All Users', '/admin/dashboard/all_users' %>
+      <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
+      <%= link_to 'See All Transactions', admin_transactions_index_path %>
+      <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
+
+    
+    </div>
+ 
+  </div>
+
+<div class="transaction-content">
+  <div class="transaction-wrapper">
     <h2>Transactions Log</h2>
     <table>
-      <thead>
+      <thead class="transact-head">
         <tr>
           <th>User Email</th>
           <th>User ID</th>
@@ -10,12 +28,12 @@
           <th>Transaction Type</th>
           <th>Stock (symbol)</th>
           <th>Quantity</th>
-          <th>Price during Transaction</th>
+         <!-- <th>Price during Transaction</th> -->
           <th>Total Price</th>
           <th>Date</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="transact-body">
         <% @transactions.each do |transaction| %>
           <tr class="<%= transaction.buy? ? 'buy-row' : 'sell-row' %>">
             <td><%= transaction.user.email %></td>
