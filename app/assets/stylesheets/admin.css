@@ -9,6 +9,17 @@
   --hover-bg-color: #0d1320;
 }
 
+/*TEMP style for transaction logs*/
+.buy-row {
+  color: black;
+  background-color: #00ff00a0;
+}
+
+.sell-row {
+  color: white;
+  background-color: rgba(255, 0, 0, 0.79);
+}
+/* end */
 body {
   margin: 0;
   padding: 0;
@@ -395,8 +406,6 @@ body {
   background-color: #1a9d81; 
 }
 
-
-
 /* Below Content */
 .flex-container {
   display: flex;
@@ -494,3 +503,4 @@ body {
   font-weight: bold;
   color: #007bff;
 } */
+

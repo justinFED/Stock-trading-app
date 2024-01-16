@@ -88,3 +88,18 @@ h1 {
 .add-money-form {
   max-width: 400px; /* Adjust as needed */
 }
+/* TEMP DESIGN FOR TOP UP (para lang kita ko yung info - jeiniel) */
+.top_up_form {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+.top_up_form h1{
+  color: white
+}
+
+.transactions_page {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}

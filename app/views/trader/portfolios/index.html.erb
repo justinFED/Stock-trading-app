@@ -1,0 +1,20 @@
+<div>
+  <h1>Portfolio</h1>
+  <%= link_to "Back to dashboard", trader_dashboard_index_path %>
+  <h3>Total Value: <%= @total %> </h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Stock</th>
+        <th>Current Unit Price</th>
+        <th>Shares</th>
+        <th>Total Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @portfolios.each do |portfolio| %>
+        <%= render partial: 'portfolio', locals: { portfolio: portfolio } %>
+      <% end %>
+    </tbody>
+  </table>
+</div>

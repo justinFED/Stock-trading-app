@@ -1,0 +1,9 @@
+<tr>
+  <td><%= stock['symbol'] %></td>
+  <td><%= stock['latest_price'] %></td>
+  <td><%= stock['change'] %></td>
+  <td><%= stock['week_52_high'] %></td>
+  <td><%= stock['week_52_low'] %></td>
+  <td><%= link_to "Buy", new_trader_transaction_path(transaction: { stock_symbol: stock['symbol'], price: stock['latest_price'], transaction_type: 'buy' }) %></td>
+  <td><%= link_to "Sell", new_trader_transaction_path(transaction: { stock_symbol: stock['symbol'], price: stock['latest_price'], transaction_type: 'sell' }) %></td>
+</tr>

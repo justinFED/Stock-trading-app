@@ -1,0 +1,29 @@
+<%= form_with(model: @transaction, url: trader_transactions_path, method: :post) do |f| %>
+  <% if @transaction.errors.any? %>
+    <p><%= @transaction.errors.full_messages.join(', ') %></p>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :stock_symbol %><br />
+    <%= f.text_field :stock_symbol, value: @transaction.stock_symbol, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price %><br />
+    <%= f.text_field :price, value: @transaction.price, readonly: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :quantity %><br />
+    <%= f.number_field :quantity, value: @transaction.quantity, min: 1, placeholder: 'minimum: 1' %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: @transaction.user.id %>
+  <%= f.hidden_field :transaction_type, value: @transaction.transaction_type %>
+
+  <% if params[:transaction][:transaction_type] == 'buy' %>
+    <%= f.submit "Buy" %>
+  <% else %>
+    <%= f.submit "Sell" %>
+  <% end %>
+<% end %>
