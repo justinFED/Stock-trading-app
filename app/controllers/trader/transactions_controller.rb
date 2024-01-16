@@ -12,14 +12,9 @@ class Trader::TransactionsController < ApplicationController
   
     def create
       @transaction = current_user.transactions.new(transaction_params)
-  
-      if transaction_can_proceed?
-        if @transaction.save
+      if @transaction.save
           redirect_to trader_transactions_path, notice: "Transaction successful."
           update_user_balance
-        else
-          render :new
-        end
       else
         flash.now[:alert] = "Transaction cannot proceed."
         render :new
@@ -30,16 +25,6 @@ class Trader::TransactionsController < ApplicationController
   
     def transaction_params
       params.require(:transaction).permit(:stock_symbol, :quantity, :price, :transaction_type, :user_id)
-    end
-  
-    def transaction_can_proceed?
-      if @transaction.buy?
-        @transaction.total_cost <= current_user.balance
-      elsif @transaction.sell?
-        @transaction.can_sell
-      else
-        false
-      end
     end
   
     def update_user_balance

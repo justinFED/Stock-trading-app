@@ -13,9 +13,11 @@ class Transaction < ApplicationRecord
     end
   end
 
-  validate :can_sell
+
+  before_create :check_if_can_proceed
   after_create :update_portfolio
   
+
   def total_cost
     quantity * price
   end
@@ -24,22 +26,27 @@ class Transaction < ApplicationRecord
     quantity * price
   end
 
-  def can_sell
-    return unless transaction_type == 'sell'
-    unless user.portfolios.find_by(stock: stock_symbol).present?
-      errors.add(:base, 'Trader does not own any share of this stock.')
-    end
-  end
 
   private
 
+  def check_if_can_proceed
+    if transaction_type == 'buy'
+      user.balance >= total_cost
+    elsif transaction_type == 'sell'
+      user.portfolios.find_by(stock: stock_symbol).present?
+    else 
+      false
+    end
+  end
+
+
   def update_portfolio
     portfolio = user.portfolios.find_or_initialize_by(stock: stock_symbol)
-
     if portfolio.persisted?
       portfolio.shares = evaluate(portfolio.shares, quantity)
     else
       portfolio.shares = evaluate(0, quantity)
     end
+    portfolio.save
   end
 end
