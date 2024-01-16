@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.label :quantity %><br />
-    <%= f.number_field :quantity, value: @transaction.quantity %>
+    <%= f.number_field :quantity, value: @transaction.quantity, min: 1, placeholder: 'minimum: 1' %>
   </div>
 
   <%= f.hidden_field :user_id, value: @transaction.user.id %>
