@@ -279,7 +279,6 @@ body {
   bottom: 0;
   padding: 20px;
   overflow-y: auto;
-  
 }
 
 .show-card {
@@ -290,15 +289,11 @@ body {
   padding: 0 0 0 40px;
   justify-content: center;
   align-items: center;
-  
- 
 }
 
 .card-title, .card-body {
   color: #fff;
 }
-
-
 
   /* All users */
 .content-wrapper {
@@ -311,11 +306,9 @@ body {
   overflow-y: auto;
 }
 
-
 .see-all-traders {
   width: 100%;
   height: calc(50vh - 40px); 
-  border-radius: 8px;
   padding: 0 0 0 40px;
   justify-content: center;
   align-items: center;
@@ -325,29 +318,29 @@ body {
   color: #fff;
 }
 
-.trader-list {
-  width: 100%;
-}
-
-.table {
+.user-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
-  background-color: #fff;
- 
-}
-
-.table th, .table td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-  font-weight: normal;
-}
-
-.table th {
-  background-color: #222428;
+  margin: 20px 0;
   color: #fff;
+
 }
+
+.user-table th{
+  color: #fff;
+  padding: 10px;
+  text-align: left;
+  font-weight: normal;
+  border-bottom: 1px solid #ddd;
+}
+
+.user-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  
+}
+
 
 /* Transaction */
 
@@ -370,20 +363,17 @@ body {
   align-items: center;
 }
 
-/* Style for the transactions log header */
 .transaction-wrapper h2 {
-
   color: #fff;
 }
 
-/* Style for the transactions table */
+
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 10px;
+  margin: 0 0 20px 0;
 }
 
-/* Style for table headers */
 .transact-head th{
   color: #fff;
   padding: 10px;
@@ -392,21 +382,19 @@ table {
   border-bottom: 1px solid #ddd;
 }
 
-/* Style for alternating row colors */
 .buy-row {
-  
   color: #e0400f; 
 }
 
 .sell-row {
- 
   color: #098f04;
 }
 
 
 .transact-body td {
   padding: 10px;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+ 
 }
 
 

@@ -22,8 +22,7 @@
   </div>
   <div class="menu-items">
   <%# TEMP DESIGN for balance functionality %>
-  <p>Current Balance: <%= number_to_currency(current_user.balance) %></p>
-  <%= link_to 'Top Up', top_up_trader_dashboard_index_path %>
+
   <%# end TEMP DESIGN for balance functionality %>
 
 
@@ -41,14 +40,15 @@
 
 <!-- Main Content -->
 <div class="traders-wrapper">
+
   <div class="traders-content">
+  <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name %></span>!</h1>
 
     <!-- Add Money Form -->
     <div class="add-money-form">
-      <h2>Add Money to Your Account</h2>
-      <%= form_for :money, url: '#' do |f| %>
-        <!-- Form fields go here -->
-      <% end %>
+      <h2>Current Balance</h2>
+      <p>Current Balance: <%= number_to_currency(current_user.balance) %></p>
+      <%= link_to 'Top Up', top_up_trader_dashboard_index_path %>
     </div>
 
     <!-- Account Summary -->
