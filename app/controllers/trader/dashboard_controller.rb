@@ -11,6 +11,7 @@ class Trader::DashboardController < ApplicationController
       end
         
         @market_news = fetch_market_news
+        Rails.logger.debug("Market News: #{@market_news.inspect}")
     end
 
     begin
@@ -45,15 +46,20 @@ end
 
 private
 
+def set_user
+  @user = User.find(params[:id])
+end
+
 def fetch_market_news
   begin
     client = IEX::Api::Client.new
-    symbols = ['TSLA', 'GOOGL', 'AMZN']
+    symbols = ['NFLX', 'BABA', 'FB']
     news = []
 
     symbols.each do |symbol|
       symbol_news = client.news(symbol).take(1)
       news.concat(symbol_news)
+      Rails.logger.debug("Market News for #{symbol}: #{symbol_news.inspect}")
     end
 
     Rails.logger.debug("Market News: #{news.inspect}")

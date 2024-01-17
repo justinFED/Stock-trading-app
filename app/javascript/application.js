@@ -9,7 +9,7 @@ import "controllers"
 // Stock Graph
 document.addEventListener('DOMContentLoaded', async function () {
   // Fetch historical stock data
-  const apiKey = 'pk_4c3cbdbb723f480aaebb788ffa0d198f';
+  const apiKey = 'pk_4618814643b7465c9f0093862a183c94';
   const symbol = 'AAPL';
 
   try {

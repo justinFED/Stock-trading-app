@@ -61,7 +61,9 @@
   <div class="traders-content">
   <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name %></span>!</h1>
 
-  <div class="flex-container">
+  <div class="top-flex-container">
+
+  <div class="add-money-wrapper">
     <!-- Add Money Form -->
     <div class="add-money-form">
       <h2>Dashboard</h2>
@@ -69,51 +71,13 @@
       <%= link_to 'Top Up', top_up_trader_dashboard_index_path, class: 'btn btn-primary topup-button', role: 'button' %>
     </div>
 
-
-
-
-
-
-    
+ 
+    <div class="withdraw-button">
+    <%= link_to 'Withdraw', '#', class: 'withraw-btn btn-secondary', role: 'button' %>
     </div>
-    
+    </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="flex-container">
     <!-- Stocks Section -->
     <div class="stock-container">
       <h2>Explore Stocks</h2>
@@ -146,6 +110,28 @@
   <% end %>
 </div>
 
+    </div>
+    
+    <div class="bottom-flex-container">
+
+    <!-- Market News -->
+<div class="trader-news-box">
+  <h1 class="trader-news-heading">Market News</h1>
+  <% if @market_news.present? %>
+    <% @market_news.each do |article| %>
+      <div class="trader-news-article">
+        <h3 class="trader-article-title"><%= article['headline'] %></h3>
+        <p class="trader-article-source">Source: <%= article['source'] %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No market news available.</p>
+  <% end %>
+</div>
+
+
+   
+
 <div class="trader-graph-box">
 <h1 class="box-heading">Additional Content</h1>
 <div id="stockGraph"></div>
@@ -153,16 +139,6 @@
 
 </div>
 
-    <!-- Market News -->
-    <div class="trader-news-box">
-    <h1 class="trader-news-heading">Market News</h1>
-    <% @market_news.each do |article| %>
-      <div class="trader-news-article">
-        <h3 class="trader-article-title"><%= article['headline'] %></h3>
-        <p class="trader-article-source">Source: <%= article['source'] %></p>
-      </div>
-    <% end %>
-  </div>
 
 
 
