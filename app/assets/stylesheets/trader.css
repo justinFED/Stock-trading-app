@@ -117,6 +117,14 @@ h1 {
   font-weight: 400;
 }
 
+.topup-button{
+  font-size: 17px;
+  font-weight: normal;
+  padding: 5px;
+  margin-top: 25px;
+  width: 100%;
+}
+
 /* Witdhraw */
 
 .withdraw-button {
@@ -138,34 +146,6 @@ h1 {
   border-radius: 8px;
 }
 
-
-
-/* TEMP DESIGN FOR TOP UP (para lang kita ko yung info - jeiniel) */
-.top_up_form {
-  display: flex;
-  flex-direction: column;
-  color: white;
-  
-}
-
-.topup-button{
-  font-size: 17px;
-  font-weight: normal;
-  padding: 5px;
-  margin-top: 25px;
-  width: 100%;
-}
-
-.top_up_form h1{
-  color: white;
-}
-
-
-.transactions_page {
-  display: flex;
-  flex-direction: column;
-  color: white;
-}
 
 /* Market News */
 
@@ -203,6 +183,72 @@ h1 {
   color: #777;
   font-size: 14px;
 }
+
+
+
+/* Transaction Page */
+
+.transactions_page {
+  display: flex;
+  flex-direction: column;
+  color: white;
+}
+
+/* Portfolio */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Menu Divider */
