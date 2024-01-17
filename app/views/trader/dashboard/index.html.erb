@@ -21,10 +21,6 @@
     <span class="website-name">Stock Harbor</span>
   </div>
   <div class="menu-items">
-  <%# TEMP DESIGN for balance functionality %>
-
-  <%# end TEMP DESIGN for balance functionality %>
-
 
   <%# TEMP DESIGN for transactions
   <%= link_to 'Buy Stocks', '#', class: 'custom-link buy-stocks' %>
@@ -32,6 +28,27 @@
 
   <%= link_to 'My Portfolio', trader_portfolios_path %>
   <%= link_to 'Transaction Page', trader_transactions_path %>
+
+
+  <hr class="menu-divider">
+  <%= link_to 'Account Summary', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Stock Alerts', '#', class: 'custom-link stock-alerts' %>
+  <%= link_to 'Market Analysis', '#', class: 'custom-link market-analysis' %>
+  <%= link_to 'Risk Management', '#', class: 'custom-link risk-management' %>
+  <%= link_to 'Tax Information', '#', class: 'custom-link tax-information' %>
+ 
+  
+  <hr class="menu-divider">
+  <%= link_to 'Mobile App', '#', class: 'custom-link mobile-app' %>
+  <%= link_to 'Watchlist', '#', class: 'custom-link watchlist' %>
+  <%= link_to 'Research', '#', class: 'custom-link research' %>
+  <%= link_to 'Trade History', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Dividends', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Settings', '#', class: 'custom-link settings' %>
+  <%= link_to 'Reports', '#', class: 'custom-link reports' %>
+  <%= link_to 'User Guides', '#', class: 'custom-link user-guides' %>
+  <%= link_to 'Educational Resources', '#', class: 'custom-link educational-resources' %>
+  <%= link_to 'Support', '#', class: 'custom-link support' %>
   <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %>
 </div>
 
@@ -44,46 +61,30 @@
   <div class="traders-content">
   <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name %></span>!</h1>
 
+  <div class="flex-container">
     <!-- Add Money Form -->
     <div class="add-money-form">
-      <h2>Current Balance</h2>
+      <h2>Dashboard</h2>
       <p>Current Balance: <%= number_to_currency(current_user.balance) %></p>
-      <%= link_to 'Top Up', top_up_trader_dashboard_index_path %>
+      <%= link_to 'Top Up', top_up_trader_dashboard_index_path, class: 'btn btn-primary topup-button', role: 'button' %>
+
+
+        
     </div>
-
-    <!-- Account Summary -->
-    <div class="account-summary">
-      <h2>Account Summary</h2>
-      <!-- Account summary details go here -->
-    </div>
-
-
-    <!-- Market News -->
-    <div class="market-news">
-      <h2>Market News</h2>
-      <!-- Market news details go here -->
-    </div>
-
-    <!-- Trade History -->
-    <div class="trade-history">
-      <h2>Trade History</h2>
-      <table>
-        <!-- Trade history table structure goes here -->
-      </table>
     </div>
 
     <!-- Stocks Section -->
-    
-  
-   <h4>Search stock: </h4>
+<div class="stock-container">
+  <h2>Explore Stocks</h2>
   <%= form_tag(trader_dashboard_index_path, method: :get) do %>
+    <div class="search-bar">
       <%= text_field_tag(:search, params[:search], placeholder: 'Enter stock symbol...') %>
-      <%= submit_tag ("Search") %>
-
+      <%= submit_tag('Search', class: 'btn btn-primary') %>
+    </div>
   <% end %>
 
   <% if @stock %>
-    <table class='table-fixed'>
+    <table class='table table-striped'>
       <thead>
         <tr>
           <th>Stock</th>
@@ -98,9 +99,20 @@
       <%= render partial: 'stock', locals: { stock: @stock } %>
     </table>
   <% else %>
-    <h4> No record found </h4>
-  <% end %> <br/>
-    
+    <div class="no-record">
+      <h4>No records found</h4>
+    </div>
+  <% end %>
+</div>
+
+
+    <!-- Market News -->
+    <div class="market-news">
+      <h2>Market News</h2>
+      <!-- Market news details go here -->
+    </div>
+
+ 
     
 
   </div>

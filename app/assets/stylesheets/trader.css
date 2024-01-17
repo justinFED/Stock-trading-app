@@ -61,11 +61,25 @@ h1 {
 .traders-content {
   width: 100%;
   height: calc(50vh - 40px);
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0 20px 0 50px;
   justify-content: center;
   align-items: center;
+}
+
+/* Stock Section */
+
+.stock-container {
+ width: 600px;
+ height: 500px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.stock-container form {
+  margin-bottom: 20px;
 }
 
 /* Section Styling */
@@ -86,20 +100,50 @@ h1 {
 }
 
 .add-money-form {
-  max-width: 400px; /* Adjust as needed */
+  max-width: 400px;
+  margin-top: 20px;
 }
+
+.add-money-form p {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.add-money-form h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+
 /* TEMP DESIGN FOR TOP UP (para lang kita ko yung info - jeiniel) */
 .top_up_form {
   display: flex;
   flex-direction: column;
   color: white;
+  
 }
+
+.topup-button{
+  font-size: 17px;
+  font-weight: normal;
+  padding: 5px;
+  width: 100%;
+}
+
 .top_up_form h1{
-  color: white
+  color: white;
 }
+
 
 .transactions_page {
   display: flex;
   flex-direction: column;
   color: white;
+}
+
+/* Menu Divider */
+
+.menu-divider {
+  border-top: 1px solid #ccc;
+  margin: 8px 0;
 }
