@@ -9,6 +9,8 @@ class Trader::DashboardController < ApplicationController
       rescue IEX::Errors::SymbolNotFoundError
         @stock = nil
       end
+        
+        @market_news = fetch_market_news
     end
 
     begin
@@ -37,5 +39,28 @@ class Trader::DashboardController < ApplicationController
     end
 
     render :top_up
+  end
+end
+
+
+private
+
+def fetch_market_news
+  begin
+    client = IEX::Api::Client.new
+    symbols = ['TSLA', 'GOOGL', 'AMZN']
+    news = []
+
+    symbols.each do |symbol|
+      symbol_news = client.news(symbol).take(1)
+      news.concat(symbol_news)
+    end
+
+    Rails.logger.debug("Market News: #{news.inspect}")
+    news || [] 
+  rescue IEX::Errors::ClientError => e
+    flash[:alert] = "Error fetching market news: #{e.message}"
+    Rails.logger.error("Error fetching market news: #{e.message}")
+    []
   end
 end
