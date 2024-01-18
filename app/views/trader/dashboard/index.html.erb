@@ -14,43 +14,140 @@
   <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-danger mt-3' %>
 <% else %>
 
-
-
-
-
-
 <div class="wrapper">
-<!-- Sidebar -->
 <div class="sidebar">
   <div class="logo-container">
     <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+    <span class="website-name">Stock Harbor</span>
   </div>
-  <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
   <div class="menu-items">
-  <%= link_to 'Buy Stocks', '#', class: 'btn btn-primary' %>
-  <%= link_to 'Sell Stocks', '#', class: 'btn btn-danger' %>
-  <%= link_to 'My Portfolio', '#', class: 'btn btn-info' %>
-  <%= link_to 'Transaction Page', '#', class: 'btn btn-success' %>
+
 
   <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, class: 'btn btn-secondary' %>
 </div>
 
 
+  <%= link_to 'My Portfolio', trader_portfolios_path %>
+  <%= link_to 'Transaction Page', trader_transactions_path %>
+
+
+  <hr class="menu-divider">
+  <%= link_to 'Account Summary', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Stock Alerts', '#', class: 'custom-link stock-alerts' %>
+  <%= link_to 'Market Analysis', '#', class: 'custom-link market-analysis' %>
+  <%= link_to 'Risk Management', '#', class: 'custom-link risk-management' %>
+  <%= link_to 'Tax Information', '#', class: 'custom-link tax-information' %>
+ 
+  
+  <hr class="menu-divider">
+  <%= link_to 'Mobile App', '#', class: 'custom-link mobile-app' %>
+  <%= link_to 'Watchlist', '#', class: 'custom-link watchlist' %>
+  <%= link_to 'Research', '#', class: 'custom-link research' %>
+  <%= link_to 'Trade History', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Dividends', '#', class: 'custom-link dividends' %>
+  <%= link_to 'Settings', '#', class: 'custom-link settings' %>
+  <%= link_to 'Reports', '#', class: 'custom-link reports' %>
+  <%= link_to 'User Guides', '#', class: 'custom-link user-guides' %>
+  <%= link_to 'Educational Resources', '#', class: 'custom-link educational-resources' %>
+  <%= link_to 'Support', '#', class: 'custom-link support' %>
+  <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %>
+</div>
+
 
 </div>
 
 <!-- Main Content -->
-<div class="content">
-  <div class="graph-container" id="chartFrame" data-turbo-frame="chartFrame">
-    <canvas id="stockChart"></canvas>
-    <div class="bottom-info">
-      <p class="total-value">Total Value: $19,710.45</p>
-      <p class="today">Today: $51.21 (+0.25%)</p>
-      <p class="buying-power">Buying Power: $6,151.79</p>
+<div class="traders-wrapper">
+
+  <div class="traders-content">
+  <h1 class="wrapper-header">Welcome, <span style="color: #21ce99;"><%= current_user.first_name.capitalize %></span>!</h1>
+
+  <div class="top-flex-container">
+
+  <div class="add-money-wrapper">
+    <!-- Add Money Form -->
+    <div class="add-money-form">
+      <h2>Dashboard</h2>
+      <p>Current Balance: <%= number_to_currency(current_user.balance) %></p>
+      <%= link_to 'Top Up', top_up_trader_dashboard_index_path, class: 'btn btn-primary topup-button', role: 'button' %>
     </div>
+
+ 
+    <div class="withdraw-button">
+    <%= link_to 'Withdraw', '#', class: 'withdraw-btn btn-primary', role: 'button' %>
+    
+    </div>
+    </div>
+
+
+    <!-- Stocks Section -->
+    <div class="stock-container">
+      <h2>Explore Stocks</h2>
+      <%= form_tag(trader_dashboard_index_path, method: :get) do %>
+      <div class="search-bar">
+      <%= text_field_tag(:search, params[:search], placeholder: 'Enter stock symbol...') %>
+      <%= submit_tag('Search', class: 'btn btn-primary') %>
+    </div>
+    <% end %>
+
+  <% if @stock %>
+    <table class='table table-striped'>
+      <thead>
+        <tr>
+          <th>Stock</th>
+          <th>Latest Price</th>
+          <th>Change</th>
+          <th>High</th>
+          <th>Low</th>
+          <th>Action</th>
+          <th></th>
+        </tr>
+      </thead>
+      <%= render partial: 'stock', locals: { stock: @stock } %>
+    </table>
+  <% else %>
+    <div class="no-record">
+      <h4>No records found</h4>
+    </div>
+  <% end %>
+</div>
+
+    </div>
+    
+    <div class="bottom-flex-container">
+
+    <!-- Market News -->
+<div class="trader-news-box">
+  <h1 class="trader-news-heading">Market News</h1>
+  <% if @market_news.present? %>
+    <% @market_news.each do |article| %>
+      <div class="trader-news-article">
+        <h3 class="trader-article-title"><%= article['headline'] %></h3>
+        <p class="trader-article-source">Source: <%= article['source'] %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p>No market news available.</p>
+  <% end %>
+</div>
+
+
+   
+
+<div class="trader-graph-box">
+<h1 class="box-heading">Stock Prices Graph</h1>
+<div id="stockGraph"></div>
+</div>
+
+</div>
+
+
+
+
   </div>
 </div>
-</div>
+
+
 
 
 

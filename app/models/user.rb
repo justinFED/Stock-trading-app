@@ -5,8 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates_presence_of :first_name, :last_name, :role
+  validates :balance, numericality: { greater_than_or_equal_to: 0 }
+  attr_accessor :top_up_amount
 
   has_many :portfolios
+  has_many :transactions
 
   enum role: { trader: 0, admin: 1 }
   enum status: { pending: 0, approved: 1}
@@ -14,11 +17,17 @@ class User < ApplicationRecord
   before_create :set_default_values
   after_create :send_pending_email
 
+  def top_up_balance(amount)
+    self.balance += amount
+    save
+  end
+
   private
 
   def set_default_values
     self.role ||= :trader
     self.status ||= :pending
+    self.balance ||= 0
   end
 
   def send_pending_email

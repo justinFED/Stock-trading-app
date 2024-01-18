@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
 
-
 :root {
   --black: #090d16;
   --dark-grey: #222428;
@@ -10,53 +9,373 @@
   --hover-bg-color: #0d1320;
 }
 
-
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  background-color: #0d1320;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
+/* Dashboard Styling */
+.trader-dashboard {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #82929f;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
-.trader-dashboard {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #82929f;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-  }
+h1 {
+  color: #333;
+}
 
-  h1 {
-    color: #333;
-  }
+.pending-status {
+  background-color: #ffd700;
+  padding: 10px;
+  border: 1px solid #e0b800;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
-  .pending-status {
-    background-color: #ffd700;
-    padding: 10px;
-    border: 1px solid #e0b800;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+.active-status {
+  background-color: #90ee90;
+  padding: 10px;
+  border: 1px solid #5cb85c;
+  border-radius: 5px;
+  margin-top: 20px;
+}
 
-  .active-status {
-    background-color: #90ee90;
-    padding: 10px;
-    border: 1px solid #5cb85c;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
+.sign-out-link {
+  color: red;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 20px;
+  display: block;
+}
 
-  .sign-out-link {
-    color: red;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    display: block;
-  }
+/* Main Content Styling */
+.traders-wrapper {
+  position: absolute;
+  top: 0;
+  left: 260px;
+  right: 0;
+  bottom: 0;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.traders-content {
+  width: 100%;
+  /* height: calc(50vh - 40px); */
+  padding: 0 20px 0 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Explore Stock Section */
+
+.stock-container {
+ width: 80%;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  text-align: center;
+ 
+}
+
+.stock-container form {
+  margin-bottom: 20px;
+}
+
+/* Trader Graph */
+
+.trader-graph-box {
+  width: 80%;
+  height: 500px;
+  background-color: gray;
+  padding: 20px;
+  border-radius: 8px;
+  
+  margin: 0 0 20px 0;
+  
+}
+
+/* Section Styling */
+.add-money-form {
+  width: 500px;
+  height: 200px;
+  /* margin-top: 20px;
+  margin-bottom: 20px; */
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.add-money-form p {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.add-money-form h2 {
+  font-size: 40px;
+  font-weight: 400;
+}
+
+.topup-button{
+  font-size: 17px;
+  font-weight: normal;
+  padding: 5px;
+  margin-top: 25px;
+  width: 100%;
+}
+
+/* Witdhraw */
+
+.withdraw-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+  
+}
+
+.withdraw-btn {
+  background-color: #c72020;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.withdraw-btn:hover {
+  text-decoration: none;
+  background-color: #810505;
+}
+
+
+/* Market News */
+
+.trader-news-box {
+  width: 600px;
+  height: 500px;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 8px;
+ 
+  margin: 0 0 20px 0;
+}
+
+.trader-news-heading {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.trader-news-article {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trader-article-title {
+  color: #333;
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.trdaer-article-source {
+  color: #777;
+  font-size: 14px;
+}
+
+
+/* Top up */
+
+
+/* Transaction Page */
+
+.transactions_page {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+  justify-content: center;
+}
+.transactions_page h1 {
+  color: white;
+}
+.transactions-link-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.transactions-link {
+  text-decoration: none;
+  padding: 5px;
+}
+.transactions-link:hover{
+  text-decoration: none;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.723);
+  border-radius: 3px; 
+}
+.transactions-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px white;
+  padding: 40px;
+  border-radius: 10px;
+}
+.transactions-new h1{
+  color: white;
+  padding: 10px;
+  text-transform:uppercase;
+}
+.transaction-form-wrapper {
+  margin-top: 20px;
+}
+
+.transaction-form-field {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Portfolio */
+
+
+
+/*Top -up form */
+.top-up-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
+
+}
+.top-up-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.top-up-body {
+  padding: 10px;
+}
+
+.form-error{
+  width: 100%;
+  color: white;
+  background-color: rgba(255, 0, 0, 0.503);
+  margin: auto;
+  list-style: none;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.topup-form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.topup-form-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.topup-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+}
+
+.topup-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Menu Divider */
+
+.menu-divider {
+  border-top: 1px solid #ccc;
+  margin: 8px 0;
+}
+
+.top-flex-container {
+  display: flex;
+  width: 100%;
+  margin: 50px 0 30px 0;
+  gap: 20px;
+}
+
+.bottom-flex-container {
+  display: flex;
+  width: 100%;
+  
+  gap: 20px;
+}
+

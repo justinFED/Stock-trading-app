@@ -6,6 +6,44 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #0d1320;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 300;
+  }
+
+  .notification-container {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%; 
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; 
+    text-align: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+  }
+  .notice {
+    color: green;
+    background-color: rgba(255, 255, 255, 0.788); 
+  }
+  .alert {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.788); 
+  }
+  .error-container {
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.788);
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 25%;
+  }
+  .error-container li{
+    list-style: none;
   }
 
   #video-background {
@@ -18,40 +56,29 @@ body {
     height: auto;
     z-index: -1;
   }
-  
-  .card {
+
+  /* Login */
+
+  .login-card  {
     background-color: #0d1320;
-    border-radius: 15px; 
+    padding: 20px;
+    border-radius: 10px;
+
   }
 
-/*Temp design --> just to see admin functions*/
-  .admin-dash-wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    padding:10px;
-  }
-  .admin-top {
-    display: flex; 
-    flex-direction: row; 
-    background-color: black;
-    padding: 10px;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .pending-traders, .approved-traders {
-    margin-top: 20px;
-  }
-  .trader-card {
-    margin: auto;
-    width: 80%;
-    border: 1px solid black;
-    padding: 10px;
+  .register-card {
+    background-color: #0d1320;
     border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  .approved {
-    background-color: lightgray;
   }
   
-  /*end of temp designs*/
+/* TEMP DESIGN 
+  .notice {
+    color: green;
+    background-color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+  }
+  .alert {
+    color:  red;
+    background-color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+  } */

@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
+:root {
+  --black: #090d16;
+  --dark-grey: #222428;
+  --light-grey: #82929f;
+  --green: #21ce99;
+  --orange: #fc4d2d;
+  --hover-bg-color: #0d1320;
+}
+
+.portfolio-wrapper {
+    position: absolute;
+    top: 0;
+    left: 260px;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.portfolio-container {
+    width: 100%;
+    height: calc(50vh - 40px); 
+
+    padding: 0 0 0 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+.portfolio-header {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+.back-to-dashboard-link a {
+    color: #3498db;
+    text-decoration: none;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h3 {
+    color: #21ce99;
+    margin-top: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+   
+  }
+
+  .portfolio-td {
+    
+    color: #fff;
+  }
+
+  .portfolio-th {
+    color: #fff;
+  }
+
+  .port-header {
+    color: #ffffff;
+ 
+  }
+
+  /* Buy and Sell */
+
+  .transaction-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .error-message {
+    color: #c72020;
+    margin-bottom: 15px;
+  }
+  
+
+  

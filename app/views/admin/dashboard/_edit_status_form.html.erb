@@ -2,26 +2,37 @@
 <!-- Sidebar -->
 <div class="sidebar">
   <div class="logo-container">
-    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+  <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+  <span class="website-name">Stock Harbor</span>
   </div>
   <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
   <div class="menu-items">
     <%= link_to 'Add New User', new_admin_dashboard_path %>
     <%= link_to 'See All Users', '/admin/dashboard/all_users' %>
     <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
-    <%= link_to 'See All Transactions', '#' %>
+    <%= link_to 'See All Transactions', admin_transactions_index_path %>
     <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
   </div>
 </div>
 
-<%= form_for trader, url: admin_dashboard_path(trader), method: :patch do |f| %>
+<%= form_for trader, url: admin_dashboard_path(trader), method: :patch, html: { class: 'edit-status-form' } do |f| %>
   <div class='field'>
-    <%= f.label :status %>
-    <%= f.radio_button :status, :pending %> Pending
-    <%= f.radio_button :status, :approved %> Approved
+    <%= f.label :status, class: 'status-label' %>
+    <div class="status-radio-buttons">
+      <%= f.radio_button :status, :pending, class: 'pending-radio' %>
+      <%= f.label :pending, class: 'radio-label' %> 
+    </div>
+    <div class="status-radio-buttons">
+      <%= f.radio_button :status, :approved, class: 'approved-radio' %>
+      <%= f.label :approved, class: 'radio-label' %> 
+    </div>
   </div>
 
   <div class='actions'>
-    <%= f.submit %>
+    <%= f.submit class: 'submit-button' %>
   </div>
+
+
+
 <% end %>
+

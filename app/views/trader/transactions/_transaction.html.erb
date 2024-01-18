@@ -1,0 +1,9 @@
+<tr class="<%= transaction.buy? ? 'buy-row' : 'sell-row' %>" >
+    <td><%= transaction.id %></td>
+    <td><%= transaction.transaction_type %></td>
+    <td><%= transaction.stock_symbol %></td>
+    <td><%= transaction.quantity %></td>
+    <td><%= number_to_currency(transaction.price) %></td>
+    <td><%= number_to_currency(transaction.total_cost) %></td>
+    <td><%= transaction.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></td>
+<tr>

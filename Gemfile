@@ -15,6 +15,8 @@ gem 'devise'
 
 gem 'iex-ruby-client'
 
+gem 'rest-client'
+
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -75,4 +77,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'rails-controller-testing'
+
+  gem 'shoulda-matchers', '~> 6.0'
 end

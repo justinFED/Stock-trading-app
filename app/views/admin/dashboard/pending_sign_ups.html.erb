@@ -2,36 +2,60 @@
 <!-- Sidebar -->
 <div class="sidebar">
   <div class="logo-container">
-    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+  <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
+  <span class="website-name">Stock Harbor</span>
   </div>
   <!-- <h1>Hello, <%= current_user.first_name %>!</h1> -->
   <div class="menu-items">
     <%= link_to 'Add New User', new_admin_dashboard_path %>
     <%= link_to 'See All Users', '/admin/dashboard/all_users' %>
     <%= link_to 'Pending Trader Sign Ups', '/admin/dashboard/pending_sign_ups' %>
-    <%= link_to 'See All Transactions', '#' %>
+    <%= link_to 'See All Transactions', admin_transactions_index_path %>
     <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete }, style: 'color: white;' %>
   </div>
 </div>
 
+
+
 <div class='admin-dash-wrapper'>
-  <div class='add-new-trader'>
-    <%= link_to 'Add New Trader', new_admin_dashboard_path, class: 'btn btn-primary' %>
-  </div>
 
   <div class='pending-traders'>
-    <h1 class='mb-4'>Pending Trader Applications</h1>
-    <% @pending_traders.each do |trader| %>
-      <div class='trader-card'>
-        <h3 class='mb-2'>
-          <%= "#{trader.first_name} #{trader.last_name}" %>
-        </h3>
-        <p>Email: <%= trader.email %></p>
-        <p>Registration Date: <%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
-        <%= render 'edit_status_form', trader: trader %>
+
+    <h2 class='pending-header'>Pending Trader Applications</h2>
+   
+    <div class='trader-table'>
+  
+      <div class='table-header'>
+        <div class='column'>Name</div>
+        <div class='column'>Email</div>
+        <div class='column'>Registration Date</div>
+        <div class='column'>Actions</div>
       </div>
-    <% end %>
+
+      
+
+      <% @pending_traders.each do |trader| %>
+        <div class='trader-row'>
+          <div class='column'><%= "#{trader.first_name} #{trader.last_name}" %></div>
+          <div class='column'><%= trader.email %></div>
+          <div class='column'><%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></div>
+          <div class='column'>
+            <%= render 'edit_status_form', trader: trader %>
+           
+          </div>
+        
+        </div>
+       
+      <% end %>
+   
+      
+    </div>
+    <%= link_to 'Back to Home', admin_dashboard_index_path, class: 'btn btn-primary mt-4' %>
   </div>
 
-
 </div>
+
+
+
+
+

@@ -15,6 +15,7 @@ default: &default
 
 
 
+
 development:
   <<: *default
   database: stock-trading-app_development

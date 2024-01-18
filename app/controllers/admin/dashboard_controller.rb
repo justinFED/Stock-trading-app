@@ -4,6 +4,8 @@ class Admin::DashboardController < ApplicationController
     def index
         @users = User.where(role: :trader)
         @pending_traders = User.where(role: :trader, status: 'pending')
+        @stock_prices = fetch_stock_prices(['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA'])
+        @market_news = fetch_market_news
     end
 
     def pending_sign_ups
@@ -19,13 +21,13 @@ class Admin::DashboardController < ApplicationController
     def new
         @user = User.new(role: :trader)
     end
-
+  
     def create
         @user = User.new(trader_params)
         if @user.save
             redirect_to admin_dashboard_index_path, notice: 'Trader was created successfully.'
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -58,5 +60,56 @@ class Admin::DashboardController < ApplicationController
     def trader_params
         params.require(:user).permit(:status, :first_name, :last_name, :email, :password, :password_confirmation, :role)
     end
+
+    def fetch_stock_prices(symbols)
+        begin
+          client = IEX::Api::Client.new
+          stock_prices = symbols.map { |symbol| client.quote(symbol) }
+          stock_prices
+        rescue IEX::Errors::ClientError => e
+          flash[:alert] = "Error fetching stock prices: #{e.message}"
+          Rails.logger.error("Error fetching stock prices: #{e.message}")
+          []
+        end
+      end
+
+      def fetch_market_news
+        begin
+          client = IEX::Api::Client.new
+          symbols = ['TSLA', 'GOOGL', 'AMZN']
+          news = []
+      
+          symbols.each do |symbol|
+            symbol_news = client.news(symbol).take(1)
+            news.concat(symbol_news)
+          end
+      
+          Rails.logger.debug("Market News: #{news.inspect}")
+          news || [] 
+        rescue IEX::Errors::ClientError => e
+          flash[:alert] = "Error fetching market news: #{e.message}"
+          Rails.logger.error("Error fetching market news: #{e.message}")
+          []
+        end
+      end
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
 end
