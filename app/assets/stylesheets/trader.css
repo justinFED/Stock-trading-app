@@ -185,16 +185,29 @@ h1 {
   margin-bottom: 5px;
 }
 
-.trdaer-article-source {
+.trader-article-source {
   color: #777;
   font-size: 14px;
 }
 
 
-/* Top up */
-
-
 /* Transaction Page */
+
+.trans-table-container {
+  width: 90%;
+    max-height: 800px; 
+    overflow-y: auto;
+   
+    padding-top: 20px;
+}
+
+.trans-table-container::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.trans-table-container::-webkit-scrollbar-thumb {
+  background-color: var(--hover-bg-color); 
+}
 
 .transactions_page {
   display: flex;
@@ -203,26 +216,35 @@ h1 {
   align-items: center;
   justify-content: center;
   height: auto;
+  width: 100%;
+ 
 }
 .transactions_page h1 {
   color: white;
 }
+
 .transactions-link-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  margin-bottom: 20px;
+  gap: 10px;
+  
 }
+
 .transactions-link {
   text-decoration: none;
   padding: 5px;
 }
+
 .transactions-link:hover{
   text-decoration: none;
   color: black;
   background-color: rgba(255, 255, 255, 0.723);
   border-radius: 3px; 
 }
+
 .transactions-new {
   display: flex;
   flex-direction: column;
@@ -232,11 +254,13 @@ h1 {
   padding: 40px;
   border-radius: 10px;
 }
+
 .transactions-new h1{
   color: white;
   padding: 10px;
   text-transform:uppercase;
 }
+
 .transaction-form-wrapper {
   margin-top: 20px;
 }
@@ -245,9 +269,6 @@ h1 {
   color: white;
   margin-bottom: 10px;
 }
-
-/* Portfolio */
-
 
 
 /*Top -up form */
@@ -283,51 +304,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/* Top Up */
 
 .topup-form-label {
   display: block;
@@ -376,7 +353,6 @@ h1 {
 .bottom-flex-container {
   display: flex;
   width: 100%;
-  
   gap: 20px;
 }
 
