@@ -132,10 +132,10 @@ h1 {
   justify-content: center;
   align-items: center;
   margin-top: 15px;
- 
+  
 }
 
-.withraw-btn {
+.withdraw-btn {
   background-color: #c72020;
   height: 40px;
   width: 100%;
@@ -144,6 +144,12 @@ h1 {
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  text-decoration: none;
+}
+
+.withdraw-btn:hover {
+  text-decoration: none;
+  background-color: #810505;
 }
 
 
@@ -185,71 +191,50 @@ h1 {
 }
 
 
+/* Top up */
 
-/* Transaction Page */
-
-.transactions_page {
-  display: flex;
-  flex-direction: column;
-  color: white;
+.top-up-form {
+  width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f8f9fa;
 }
 
-/* Portfolio */
+.topup-form-group {
+  margin-bottom: 15px;
+}
 
+.topup-form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
 
+.topup-form-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
 
+.topup-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.topup-btn:hover {
+  background-color: #0056b3;
+}
 
 /* Menu Divider */
 
@@ -261,7 +246,7 @@ h1 {
 .top-flex-container {
   display: flex;
   width: 100%;
-  margin: 30px 0 30px 0;
+  margin: 50px 0 30px 0;
   gap: 20px;
 }
 
