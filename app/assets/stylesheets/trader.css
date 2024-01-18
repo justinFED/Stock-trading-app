@@ -214,7 +214,28 @@ h1 {
   background-color: rgba(255, 255, 255, 0.723);
   border-radius: 3px; 
 }
+.transactions-new {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid 1px white;
+  padding: 40px;
+  border-radius: 10px;
+}
+.transactions-new h1{
+  color: white;
+  padding: 10px;
+  text-transform:uppercase;
+}
+.transaction-form-wrapper {
+  margin-top: 20px;
+}
 
+.transaction-form-field {
+  color: white;
+  margin-bottom: 10px;
+}
 
 /* Portfolio */
 

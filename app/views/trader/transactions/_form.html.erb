@@ -3,17 +3,17 @@
     <p><%= @transaction.errors.full_messages.join(', ') %></p>
   <% end %>
 
-  <div class="field">
+  <div class="transaction-form-field">
     <%= f.label :stock_symbol %><br />
     <%= f.text_field :stock_symbol, value: @transaction.stock_symbol, readonly: true %>
   </div>
 
-  <div class="field">
+  <div class="transaction-form-field">
     <%= f.label :price %><br />
     <%= f.text_field :price, value: @transaction.price, readonly: true %>
   </div>
 
-  <div class="field">
+  <div class="transaction-form-field">
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity, value:1, min: 1, placeholder: 'minimum: 1' %>
   </div>
@@ -22,8 +22,8 @@
   <%= f.hidden_field :transaction_type, value: @transaction.transaction_type %>
 
   <% if params[:transaction][:transaction_type] == 'buy' %>
-    <%= f.submit "Buy" %>
+    <%= f.submit "Buy", class: 'btn btn-success' %>
   <% else %>
-    <%= f.submit "Sell" %>
+    <%= f.submit "Sell", class: 'btn btn-success' %>
   <% end %>
 <% end %>
