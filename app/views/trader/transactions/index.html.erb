@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @transactions.each do |transaction| %>
+        <% @transactions.reverse.each do |transaction| %>
           <%= render(partial: 'transaction', locals: { transaction: transaction }) %>
         <% end %>
       </tbody>

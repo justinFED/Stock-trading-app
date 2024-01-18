@@ -17,7 +17,7 @@ class Trader::TransactionsController < ApplicationController
           update_user_balance
       else
         flash.now[:alert] = "Transaction cannot proceed."
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
   

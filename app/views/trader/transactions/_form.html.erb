@@ -1,7 +1,10 @@
 <%= form_with(model: @transaction, url: trader_transactions_path, method: :post) do |f| %>
-  <% if @transaction.errors.any? %>
-    <p><%= @transaction.errors.full_messages.join(', ') %></p>
+<div class="form-error">
+  <% @transaction.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
   <% end %>
+</div>
+
 
   <div class="transaction-form-field">
     <%= f.label :stock_symbol %><br />
