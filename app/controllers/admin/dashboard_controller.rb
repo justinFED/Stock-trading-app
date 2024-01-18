@@ -27,7 +27,7 @@ class Admin::DashboardController < ApplicationController
         if @user.save
             redirect_to admin_dashboard_index_path, notice: 'Trader was created successfully.'
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 

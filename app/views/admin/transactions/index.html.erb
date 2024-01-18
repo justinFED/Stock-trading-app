@@ -19,6 +19,14 @@
 <div class="transaction-content">
   <div class="transaction-wrapper">
     <h2>Transactions Log</h2>
+
+    <div class="search-bar">
+      <%= form_tag(admin_transactions_index_path, method: :get) do %>
+      <%= text_field_tag :search_email, params[:search_email], placeholder: 'Search by email' %>
+      <%= submit_tag 'Search', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+
     <table>
       <thead class="transact-head">
         <tr>

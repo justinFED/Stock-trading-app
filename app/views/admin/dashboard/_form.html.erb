@@ -15,6 +15,21 @@
 </div>
 
 <%= form_for user, url: user.persisted? ? admin_dashboard_path(user) : admin_dashboard_index_path, method: user.persisted? ? :patch : :post do |f| %>
+  
+  <div class="error-container">
+    <% if f.object.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(f.object.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% f.object.errors.full_messages.each do |error| %>
+            <li><%= error %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+  </div>
+  
   <div class='field mb-3'>
     <%= f.label :first_name, class: 'form-label text-light' %>
     <%= f.text_field :first_name, class: 'form-control bg-light text-dark', placeholder: 'Enter first name' %>
