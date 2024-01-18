@@ -42,7 +42,7 @@
         </tr>
       </thead>
       <tbody class="transact-body">
-        <% @transactions.each do |transaction| %>
+        <% @transactions.reverse.each do |transaction| %>
           <tr class="<%= transaction.buy? ? 'buy-row' : 'sell-row' %>">
             <td><%= transaction.user.email %></td>
             <td><%= transaction.user.id %></td>

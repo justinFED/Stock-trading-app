@@ -21,16 +21,17 @@
       <h1 class='card-title'>User Details</h1>
     </div>
     <div class='card-body'>
-      <h2 class='user-name'><%= "#{@user.first_name} #{@user.last_name}" %></h2>
+      <h2 class='user-name'><%= "#{@user.first_name.capitalize} #{@user.last_name.capitalize}" %></h2><hr>
       <p class='card-text'>User ID: <%= @user.id %></p>
       <p class='card-text'>Email: <%= @user.email %></p>
-      <p class='card-text'>Role: <%= @user.role %></p>
-      <p class='card-text'>Status: <%= @user.status %></p>
+      <p class='card-text'>Role: <%= @user.role.capitalize %></p>
+      <p class='card-text'>Status: <%= @user.status.capitalize %></p>
       <p class='card-text'>Registration Date: <%= @user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></p>
+      <div class='card-footer'>
+      <%= link_to 'Edit User Info', edit_admin_dashboard_path(@user), class: 'btn btn-primary' %> ||  <%= link_to 'Back to Home', admin_dashboard_index_path, class: 'btn btn-primary' %>
     </div>
-    <div class='card-footer'>
-      <%= link_to 'Edit User Info', edit_admin_dashboard_path(@user), class: 'btn btn-primary' %>
     </div>
+    
   </div>
 </div>
 
