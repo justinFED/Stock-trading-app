@@ -198,7 +198,28 @@ h1 {
 
 
 
+/*Top -up form */
+.top-up-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  padding: 30px;
+  background-color: white;
+  border-radius: 20px;
 
+}
+.top-up-btn-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.top-up-body {
+  padding: 10px;
+}
 
 
 

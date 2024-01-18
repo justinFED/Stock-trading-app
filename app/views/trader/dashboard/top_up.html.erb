@@ -1,13 +1,16 @@
-<div class='top_up_form'>
+<div class='top-up-form-container'>
 
 <h1>Top Up Your Balance</h1>
 
 <%= form_with(url: top_up_trader_dashboard_index_path, method: :post) do |form| %>
-    <div>
-        <%= form.label :top_up_amount %>
-        <%= form.number_field :top_up_amount, value: @top_up_amount %>
+    
+    <div class='top-up-body'>
+        <%= form.label :top_up_amount, "Amount: " %>
+        <%= form.number_field :top_up_amount, min: 1, value: @top_up_amount %>
     </div>
-    <%= form.submit "Top Up" %>
+    <div class= 'top-up-btn-container'>
+    <%= form.submit "Top Up", class: 'btn btn-success' %> || <%= link_to 'Back', trader_dashboard_index_path, class: 'btn btn-primary' %>
+    </div>
 <% end %>
 
 </div>
