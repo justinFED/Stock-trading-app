@@ -2,21 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Portfolio, type: :model do
  # pending "add some examples to (or delete) #{__FILE__}"
- it 'belongs to a user' do
-    user = User.create(
-        first_name: 'John',
-        last_name: 'Doe',
-        email: 'john.doe@sample.com',
-        password: 'password',
-        role: 0,
-        status: 0)
+ context 'associations' do
+  it { should belong_to(:user) }
+ end
 
-    portfolio = Portfolio.new(user: user)
-
-    user.save!
-    portfolio.save!
-    portfolio.reload
-
-    expect(portfolio.user).to eq(user)
-  end
+ context 'validations' do
+  it { should validate_presence_of(:shares) }
+  it { should validate_presence_of(:stock) }
+ end
+ 
 end
