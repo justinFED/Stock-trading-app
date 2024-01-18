@@ -284,8 +284,6 @@ body {
 .show-card {
   width: 100%;
   height: calc(50vh - 40px); 
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0 0 0 40px;
   justify-content: center;
   align-items: center;
@@ -295,12 +293,14 @@ body {
   color: #fff;
 }
 
-.card-body {
+.show-card-body {
   background-color: rgba(255, 255, 255, 0.899);
   color: black;
   width: 40%;
   border-radius: 10px;
+  padding: 30px 0 0 30px;
 }
+
 .user-name {
   text-align: center;
 }

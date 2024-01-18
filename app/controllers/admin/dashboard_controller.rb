@@ -21,7 +21,7 @@ class Admin::DashboardController < ApplicationController
     def new
         @user = User.new(role: :trader)
     end
-
+  
     def create
         @user = User.new(trader_params)
         if @user.save

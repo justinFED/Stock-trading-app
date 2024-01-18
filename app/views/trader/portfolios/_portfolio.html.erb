@@ -3,4 +3,5 @@
   <td><%= number_to_currency(portfolio[:current_price]) %></td>
   <td><%= portfolio[:shares] %></td>
   <td><%= number_to_currency(portfolio[:total]) %></td>
+  <td><%= link_to "Sell", new_trader_transaction_path(transaction: { stock_symbol: portfolio[:stock], price: portfolio[:current_price], transaction_type: 'sell' }) %></td>
 </tr>
