@@ -36,10 +36,11 @@ class Trader::DashboardController < ApplicationController
         return
       else
         flash.now[:alert] = "Top-up amount is invalid."
+        render :top_up
       end
     end
 
-    render :top_up
+    
   end
 end
 

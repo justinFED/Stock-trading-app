@@ -31,10 +31,10 @@
         <tbody>
           <% @approved_traders.each do |user| %>
             <tr>
-              <td><%= link_to "#{user.first_name} #{user.last_name}", admin_dashboard_path(user), class: 'custom-link' %></td>
+              <td><%= link_to "#{user.first_name.capitalize} #{user.last_name.capitalize}", admin_dashboard_path(user), class: 'custom-link' %></td>
               <td><%= user.email %></td>
-              <td><%= user.role %></td>
-              <td><%= user.status %></td>
+              <td><%= user.role.capitalize %></td>
+              <td><%= user.status.capitalize %></td>
               <td><%= user.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></td>
             </tr>
           <% end %>

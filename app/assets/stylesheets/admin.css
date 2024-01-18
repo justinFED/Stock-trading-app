@@ -291,8 +291,26 @@ body {
   align-items: center;
 }
 
-.card-title, .card-body {
+.card-title {
   color: #fff;
+}
+
+.card-body {
+  background-color: rgba(255, 255, 255, 0.899);
+  color: black;
+  width: 40%;
+  border-radius: 10px;
+}
+.user-name {
+  text-align: center;
+}
+.card-footer {
+  background-color: transparent;
+  margin: auto;
+  display:flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
 }
 
   /* All users */
@@ -380,20 +398,24 @@ table {
   text-align: left;
   font-weight: normal;
   border-bottom: 1px solid #ddd;
+  text-align: center;
 }
 
 .buy-row {
-  color: #e0400f; 
+  background-color: #5ac6576a;
+  color: white;
+  
 }
 
 .sell-row {
-  color: #098f04;
+  background-color:  #e6471784; 
+  color: white;
 }
-
 
 .transact-body td {
   padding: 10px;
-  border: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
+  text-align: center;
  
 }
 

@@ -1,48 +1,12 @@
-<div class="wrapper">
-<div class="sidebar">
-  <div class="logo-container">
-    <%= image_tag("logo.png", alt: "logo", class: "admin-logo", style: "max-width: 90px;") %>
-    <span class="website-name">Stock Harbor</span>
+
+<div class='transactions_page'>
+  <h1>Trader's Transaction History</h1>
+  <div class= 'transaction-link-container'>
+    <%= link_to "Back to dashboard", trader_dashboard_index_path, class: 'transactions-link' %> ||
+    <%= link_to "Portfolio", trader_portfolios_index_path, class: 'transactions-link' %>
   </div>
-  <div class="menu-items">
+  <div>
 
-  <%# TEMP DESIGN for transactions
-  <%= link_to 'Buy Stocks', '#', class: 'custom-link buy-stocks' %>
-  <%#= link_to 'Sell Stocks', '#', class: 'custom-link sell-stocks' %>
-
-  <%= link_to 'My Portfolio', trader_portfolios_path %>
-  <%= link_to 'Transaction Page', trader_transactions_path %>
-
-
-  <hr class="menu-divider">
-  <%= link_to 'Account Summary', '#', class: 'custom-link dividends' %>
-  <%= link_to 'Stock Alerts', '#', class: 'custom-link stock-alerts' %>
-  <%= link_to 'Market Analysis', '#', class: 'custom-link market-analysis' %>
-  <%= link_to 'Risk Management', '#', class: 'custom-link risk-management' %>
-  <%= link_to 'Tax Information', '#', class: 'custom-link tax-information' %>
- 
-  
-  <hr class="menu-divider">
-  <%= link_to 'Mobile App', '#', class: 'custom-link mobile-app' %>
-  <%= link_to 'Watchlist', '#', class: 'custom-link watchlist' %>
-  <%= link_to 'Research', '#', class: 'custom-link research' %>
-  <%= link_to 'Trade History', '#', class: 'custom-link dividends' %>
-  <%= link_to 'Dividends', '#', class: 'custom-link dividends' %>
-  <%= link_to 'Settings', '#', class: 'custom-link settings' %>
-  <%= link_to 'Reports', '#', class: 'custom-link reports' %>
-  <%= link_to 'User Guides', '#', class: 'custom-link user-guides' %>
-  <%= link_to 'Educational Resources', '#', class: 'custom-link educational-resources' %>
-  <%= link_to 'Support', '#', class: 'custom-link support' %>
-  <%= link_to 'Sign Out', destroy_user_session_path, data: { turbo_method: :delete } %>
-</div>
-</div>
-
-
-  
-
-  <div class="portfolio-wrapper">
-  <div class="portfolio-container">
-    <h2 class="port-header">Transaction History</h2>
     <table>
       <thead class="portfolio-th">
         <tr class="portfolio-tr">
@@ -55,8 +19,10 @@
           <th>Date</th>
         </tr>
       </thead>
-      <tbody class="portfolio-td">
-        <% @transactions.each do |transaction| %>
+     <tbody>
+        <% @transactions.reverse.each do |transaction| %>
+
+
           <%= render(partial: 'transaction', locals: { transaction: transaction }) %>
         <% end %>
       </tbody>

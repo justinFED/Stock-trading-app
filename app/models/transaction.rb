@@ -29,12 +29,13 @@ class Transaction < ApplicationRecord
     elsif transaction_type == 'sell'
       portfolio = user.portfolios.find_by(stock: stock_symbol)
       unless portfolio.present? && portfolio.shares >= quantity && quantity.positive?
-        errors.add(:base, "Insufficient shares to sell")
+        errors.add(:base, "Insufficient shares.")
       end
     else
       errors.add(:base, "Invalid transaction type")
     end
   end
+  
 
   def update_portfolio
     portfolio = user.portfolios.find_or_initialize_by(stock: stock_symbol)

@@ -1,7 +1,13 @@
-<div class="top-up-form">
-  <h1><%= @transaction.transaction_type == 'buy' ? 'Buy' : 'Sell' %> Stock</h1>
 
-  <%= render "form", method: :post, url: new_trader_transaction_path %>
 
-  <%= link_to 'Back to Dashboard', trader_dashboard_index_path, class: 'btn btn-primary buy-button mt-4' %>
+<div class = 'transactions-new'>
+
+    <h1><%= @transaction.transaction_type == 'buy' ? 'Buy' : 'Sell' %> stock</h1>
+    <%= link_to "Back to dashboard", trader_dashboard_index_path, class: 'transactions-link' %>
+
+    <div class='transaction-form-wrapper' >
+        <%= render "form", method: :post, url: new_trader_transaction_path %>
+    </div>
+
+   
 </div>
