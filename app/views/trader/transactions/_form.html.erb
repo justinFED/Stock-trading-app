@@ -1,9 +1,13 @@
+
 <%= form_with(model: @transaction, url: trader_transactions_path, method: :post) do |f| %>
 <div class="form-error">
   <% @transaction.errors.full_messages.each do |message| %>
     <li><%= message %></li>
+
+
   <% end %>
 </div>
+
 
 
   <div class="transaction-form-field">
@@ -19,14 +23,17 @@
   <div class="transaction-form-field">
     <%= f.label :quantity %><br />
     <%= f.number_field :quantity, value:1, min: 1, placeholder: 'minimum: 1' %>
+
   </div>
 
   <%= f.hidden_field :user_id, value: @transaction.user.id %>
   <%= f.hidden_field :transaction_type, value: @transaction.transaction_type %>
 
   <% if params[:transaction][:transaction_type] == 'buy' %>
+
     <%= f.submit "Buy", class: 'btn btn-success' %>
   <% else %>
     <%= f.submit "Sell", class: 'btn btn-success' %>
+
   <% end %>
 <% end %>

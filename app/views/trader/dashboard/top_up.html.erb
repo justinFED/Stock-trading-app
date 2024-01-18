@@ -1,3 +1,4 @@
+
 <div class='top-up-form-container'>
 
 <h1>Top Up Your Balance</h1>
@@ -13,4 +14,7 @@
     </div>
 <% end %>
 
+    <%= form.submit "Top Up", class: 'topup-btn btn-primary' %>
+    <%= link_to 'Back to Dashboard', trader_dashboard_index_path, class: 'topup-btn btn-primary' %>
+  <% end %>
 </div>

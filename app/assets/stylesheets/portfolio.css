@@ -73,4 +73,37 @@
  
   }
 
+  /* Buy and Sell */
+
+  .transaction-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+  }
+  
+  .form-field {
+    margin-bottom: 15px;
+  }
+  
+  .form-label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .error-message {
+    color: #c72020;
+    margin-bottom: 15px;
+  }
+  
+
   

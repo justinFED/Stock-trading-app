@@ -1,3 +1,4 @@
+
 <div class='transactions_page'>
   <h1>Trader's Transaction History</h1>
   <div class= 'transaction-link-container'>
@@ -5,9 +6,10 @@
     <%= link_to "Portfolio", trader_portfolios_index_path, class: 'transactions-link' %>
   </div>
   <div>
+
     <table>
-      <thead>
-        <tr>
+      <thead class="portfolio-th">
+        <tr class="portfolio-tr">
           <th>Transaction ID</th>
           <th>Transaction Type</th>
           <th>Stock (symbol)</th>
@@ -17,11 +19,16 @@
           <th>Date</th>
         </tr>
       </thead>
-      <tbody>
+     <tbody>
         <% @transactions.reverse.each do |transaction| %>
+
+
           <%= render(partial: 'transaction', locals: { transaction: transaction }) %>
         <% end %>
       </tbody>
     </table>
+    <%= link_to 'Back to Dashboard', trader_dashboard_index_path, class: 'btn btn-primary' %>
+    <%= link_to 'Go To Portfolio', trader_portfolios_index_path, class: 'btn btn-primary' %>
   </div>
 </div>
+
