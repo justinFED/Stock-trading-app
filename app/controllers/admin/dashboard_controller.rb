@@ -25,7 +25,9 @@ class Admin::DashboardController < ApplicationController
     def create
         @user = User.new(trader_params)
         if @user.save
-            
+            if @user.status == 'approved'
+                UserMailer.approved_email(@user).deliver_later
+            end
             redirect_to admin_dashboard_index_path, notice: 'Trader was created successfully.'
         else
             render :new, status: :unprocessable_entity
