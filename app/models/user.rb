@@ -15,7 +15,7 @@ class User < ApplicationRecord
   enum status: { pending: 0, approved: 1}
 
   before_create :set_default_values
-  after_create :send_pending_email
+  after_create :send_status_email
 
   def top_up_balance(amount)
     self.balance += amount
@@ -30,8 +30,12 @@ class User < ApplicationRecord
     self.balance ||= 0
   end
 
-  def send_pending_email
-    UserMailer.pending_email(self).deliver_later
+  def send_status_email
+    if approved?
+      UserMailer.approved_email(self).deliver_later
+    else
+      UserMailer.pending_email(self).deliver_later
+    end
   end
 
 end

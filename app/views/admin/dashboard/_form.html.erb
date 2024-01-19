@@ -57,12 +57,13 @@
 
   <div class='field mb-3'>
     <%= f.label :status, class: 'form-label text-light d-block' %>
+    <!--
     <div class="form-check form-check-inline">
       <%= f.radio_button :status, :pending, class: 'form-check-input', id: 'pending_radio' %>
       <%= f.label :pending, class: 'form-check-label text-light', for: 'pending_radio' %>
-    </div>
+    </div>-->
     <div class="form-check form-check-inline">
-      <%= f.radio_button :status, :approved, class: 'form-check-input', id: 'approved_radio' %>
+      <%= f.radio_button :status, :approved, checked: true, class: 'form-check-input', id: 'approved_radio' %>
       <%= f.label :approved, class: 'form-check-label text-light', for: 'approved_radio' %>
     </div>
   </div>
