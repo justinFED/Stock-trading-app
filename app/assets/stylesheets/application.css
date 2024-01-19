@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400&display=swap');
+
+:root {
+  --black: #090d16;
+  --dark-grey: #222428;
+  --light-grey: #82929f;
+  --green: #21ce99;
+  --orange: #fc4d2d;
+  --hover-bg-color: #0d1320;
+}
+
 body {
     margin: 0;
     padding: 0;

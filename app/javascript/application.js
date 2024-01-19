@@ -8,7 +8,6 @@ import "controllers"
 
 // Stock Graph
 document.addEventListener('DOMContentLoaded', async function () {
-  // Fetch historical stock data
   const apiKey = 'pk_4618814643b7465c9f0093862a183c94';
   const symbol = 'AAPL';
 
@@ -38,7 +37,7 @@ function clearGraph() {
 
 function renderGraph(data) {
   const margin = { top: 20, right: 20, bottom: 30, left: 50 };
-  const height = 400 - margin.top - margin.bottom;
+  const height = 450 - margin.top - margin.bottom;
 
   const svg = d3.select("#stockGraph");
 
@@ -83,4 +82,3 @@ function renderGraph(data) {
   chart.append("g")
     .call(d3.axisLeft(y));
 }
-// Stock Graph
