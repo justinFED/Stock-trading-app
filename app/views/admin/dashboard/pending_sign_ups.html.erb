@@ -18,42 +18,35 @@
 
 
 <div class='admin-dash-wrapper'>
-
   <div class='pending-traders'>
-
     <h2 class='pending-header'>Pending Trader Applications</h2>
-   
-    <div class='trader-table'>
-  
-      <div class='table-header'>
-        <div class='column'>Name</div>
-        <div class='column'>Email</div>
-        <div class='column'>Registration Date</div>
-        <div class='column'>Actions</div>
-      </div>
-
-      
-
-      <% @pending_traders.each do |trader| %>
-        <div class='trader-row'>
-          <div class='column'><%= "#{trader.first_name} #{trader.last_name}" %></div>
-          <div class='column'><%= trader.email %></div>
-          <div class='column'><%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></div>
-          <div class='column'>
-            <%= render 'edit_status_form', trader: trader %>
-           
-          </div>
-        
-        </div>
-       
-      <% end %>
-   
-      
-    </div>
+    <table class='trader-table'>
+      <thead>
+        <tr class='table-header'>
+          <th class='column'>Name</th>
+          <th class='column'>Email</th>
+          <th class='column'>Registration Date</th>
+          <th class='column'>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @pending_traders.each do |trader| %>
+          <tr class='trader-row'>
+            <td class='column'><%= "#{trader.first_name} #{trader.last_name}" %></td>
+            <td class='column'><%= trader.email %></td>
+            <td class='column'><%= trader.created_at.in_time_zone('Asia/Manila').strftime('%d %b %Y %H:%M') %></td>
+            <td class='column'>
+              <%= render 'edit_status_form', trader: trader %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
     <%= link_to 'Back to Home', admin_dashboard_index_path, class: 'btn btn-primary mt-4' %>
   </div>
-
 </div>
+
+
 
 
 

@@ -239,8 +239,6 @@ body {
 .pending-traders, .approved-traders {
   width: 100%;
   height: calc(50vh - 40px); 
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 0 0 0 40px;
   justify-content: center;
   align-items: center;
@@ -259,8 +257,6 @@ body {
 .trader-row {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
 }
 
 .column {
