@@ -31,9 +31,9 @@ class User < ApplicationRecord
   end
 
   def send_status_email
-    if pending?
+    if status == 'pending'
       UserMailer.pending_email(self).deliver_later
-    else
+    elsif status == 'approved'
       UserMailer.approved_email(self).deliver_later
     end
   end
